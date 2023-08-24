@@ -1,7 +1,7 @@
 const Screen = () => {
   return (
     <section
-      className="screen"
+      className="screen "
       onClick={(event) => {
         event.stopPropagation();
       }}
