@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
+import { useThree } from "@react-three/fiber";
 import Screen from "./Screen";
 
 const Interface = ({ section }) => {
+  const { viewport } = useThree();
+  const responsiveRatio = viewport.width / 4;
+
+  const isMobile = window.innerWidth < 850;
+  console.log(responsiveRatio);
   return (
     <>
       <motion.section
@@ -35,7 +41,7 @@ const Interface = ({ section }) => {
           },
         }}
       >
-        <h1 className="text-white text-[40px] lx:text-[60px] text-right">
+        <h1 className="text-white text-[40px] xl:text-[60px] text-right">
           Sit down, <br />
           Turn it on,
           <br />
@@ -46,13 +52,13 @@ const Interface = ({ section }) => {
         </h3>
       </motion.section>
       <motion.section
-        className="absolute m-[1rem] top-[212vh] left-[13vw] overflow-hidden"
+        className="absolute m-[1rem] top-[200vh] left-[8vw] overflow-hidden"
         initial={{ opacity: 0, scale: 0 }}
         animate={"" + section}
         variants={{
           1: {
             opacity: 1,
-            scale: 1,
+            scale: responsiveRatio,
             transition: { ease: "linear", duration: 1, delay: 0.4 },
           },
         }}
