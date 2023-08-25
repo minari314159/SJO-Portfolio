@@ -3,13 +3,19 @@ import { useGLTF, Float, useScroll } from "@react-three/drei";
 
 import { motion } from "framer-motion-3d";
 import { MotionConfig } from "framer-motion";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 
 const DeskScene = () => {
   const { nodes, materials } = useGLTF("/old_desk.gltf");
 
   const data = useScroll();
   const [section, setSection] = useState(0);
+
+  //3D Responsive Design
+  const { viewport } = useThree();
+  const isMobile = window.innerWidth < 769;
+  const responsiveRatio = viewport.width / 12;
+  const scaleRatio = Math.max(0.005, Math.min(0.005 * responsiveRatio, 0.005));
 
   const model = useRef();
   const monitor = useRef();
@@ -39,39 +45,43 @@ const DeskScene = () => {
         <motion.group
           name="Scene_1"
           ref={model}
-          scale={0}
-          position={[0.88, 0, 0]}
+          scale={scaleRatio}
+          position={[
+            isMobile ? 0.6 : 0.8,
+            isMobile ? -viewport.height / 6 : -0.2,
+            0,
+          ]}
           rotation={[0, -0.26, 0]}
           initial={{ opacity: 0 }}
           animate={"" + section}
           variants={{
             0: {
-              x: 0.88,
-              y: 0,
-              z: 0,
+              x: isMobile ? 0.6 : 0.78,
+              y: isMobile ? -viewport.height / 6 : -0.2,
+              z: isMobile ? 0.4 : 0,
               opacity: 1,
-              scale: 0.005,
+              scale: scaleRatio,
               rotateY: -0.26,
               transition: { duration: 1, delay: 0.5 },
             },
             1: {
-              x: 1.3,
+              x: isMobile ? 1.2 : 1.3,
               y: -0.05,
               z: 1.4,
-              scale: 0.006,
+              scale: isMobile ? 0.0055 : 0.006,
               rotateY: 0.79,
               rotateZ: 0.04,
               rotateX: -0.05,
               transition: { duration: 1, delay: 0.5 },
             },
             2: {
-              x: 1.73,
-              y: -0.33,
-              z: 2,
-              scale: 0.008,
+              x: isMobile ? 1.9 : 1.85,
+              y: isMobile ? viewport.height / 7.7 : -0.3,
+              z: isMobile ? 1.95 : 2.1,
+              scale: isMobile ? 0.004 : 0.008,
               rotateY: 0.75,
-              rotateZ: 0.21,
-              rotateX: -0.3,
+              rotateZ: 0.25,
+              rotateX: -0.35,
               transition: { duration: 1, delay: 0.5 },
             },
           }}

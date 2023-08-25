@@ -1,7 +1,7 @@
 const Screen = () => {
   return (
     <section
-      className="screen "
+      className="h-[600px] w-[770px] outline-none border-none overflow-hidden screen "
       onClick={(event) => {
         event.stopPropagation();
       }}
