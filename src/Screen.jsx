@@ -6,7 +6,7 @@ const Screen = () => {
         event.stopPropagation();
       }}
     >
-      {/* <iframe overflow="scroll" src="https://3-d-portfolio-pi.vercel.app/" /> */}
+      <iframe overflow="scroll" src="https://3-d-portfolio-pi.vercel.app/" />
     </section>
   );
 };

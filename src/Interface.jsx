@@ -33,8 +33,8 @@ const Interface = ({ section }) => {
         </h3>
       </motion.section>
       <motion.section
-        className="h-screen w-screen p-8 max-w-screen-2xl mx-auto
-        flex flex-col items-center md:items-start xl:items-end"
+        className="h-screen w-screen p-8 max-w-screen-2xl mx-auto md:mx-4 xl:mx-4
+        flex flex-col items-center md:items-end lg:items-start xl:items-end"
         initial={{ opacity: 0, x: 50 }}
         animate={"" + section}
         variants={{
@@ -45,7 +45,7 @@ const Interface = ({ section }) => {
           },
         }}
       >
-        <h1 className="text-white text-[40px] lg:text-[60px] xl:text-[70px] text-center md:text-left xl:text-right">
+        <h1 className="text-white text-[40px] lg:text-[60px] xl:text-[70px] text-center md:text-right lg:text-left xl:text-right">
           Sit down, <br className="hidden md:flex" />
           Turn it on,
           <br className="hidden md:flex" />
