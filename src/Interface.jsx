@@ -1,17 +1,20 @@
 import { motion } from "framer-motion";
 import { useThree } from "@react-three/fiber";
 import Screen from "./Screen";
+import { useState, useEffect } from "react";
+import { useScroll } from "@react-three/drei";
 
 const Interface = ({ section }) => {
   const { viewport } = useThree();
-  const responsiveRatio = viewport.width / 4;
 
-  const isMobile = window.innerWidth < 850;
-  console.log(responsiveRatio);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const data = useScroll();
+  const visible = data.scroll.current >= 0.9;
   return (
     <>
       <motion.section
-        className="absolute m-0 pl-[3rem] h-[80vh] top-0 w-[100vw] flex flex-col justify-start gap-5"
+        className="h-screen w-screen p-8 max-w-screen-2xl mx-auto
+        flex flex-col items-start"
         initial={{ opacity: 0, x: -50 }}
         animate={"" + section}
         variants={{
@@ -30,7 +33,8 @@ const Interface = ({ section }) => {
         </h3>
       </motion.section>
       <motion.section
-        className="absolute m-1 pr-[1rem] h-[80vh] top-[120vh] xl:top-[110vh] left-[-12vw] md:left-[37vw] lg:left-[52vw] xl:left-[65vw] w-[30rem] flex flex-col gap-5"
+        className="h-screen w-screen p-8 max-w-screen-2xl mx-auto
+        flex flex-col items-center md:items-start xl:items-end"
         initial={{ opacity: 0, x: 50 }}
         animate={"" + section}
         variants={{
@@ -41,25 +45,26 @@ const Interface = ({ section }) => {
           },
         }}
       >
-        <h1 className="text-white text-[40px] xl:text-[60px] text-right">
-          Sit down, <br />
+        <h1 className="text-white text-[40px] lg:text-[60px] xl:text-[70px] text-center md:text-left xl:text-right">
+          Sit down, <br className="hidden md:flex" />
           Turn it on,
-          <br />
+          <br className="hidden md:flex" />
           Enjoy !
         </h1>
-        <h3 className="text-gray-500 text-right text-[18px] lg:text-[20px]">
+        <h3 className="text-gray-500 text-center md:text-right text-[15px] lg:text-[20px]">
           * Scroll to proceed *
         </h3>
       </motion.section>
       <motion.section
-        className="absolute m-[1rem] top-[200vh] left-[8vw] overflow-hidden"
+        className="h-screen w-screen p-8 max-w-screen-2xl mx-[-2rem] my-[-3.5rem] md:mx-[4rem] md:my-[-7rem] lg:my-[-1rem] lg:mx-[-1rem] xl:mx-[6rem]
+        flex flex-col justify-end items-start"
         initial={{ opacity: 0, scale: 0 }}
         animate={"" + section}
         variants={{
           1: {
             opacity: 1,
-            scale: responsiveRatio,
-            transition: { ease: "linear", duration: 1, delay: 0.4 },
+            scale: 1.05,
+            transition: { ease: "linear", duration: 0.2, delay: 0 },
           },
         }}
       >

@@ -8,7 +8,7 @@ const Menu = ({ changeSection }) => {
       <button className="button" onClick={() => changeSection(1)}>
         2
       </button>
-      <button className="button" onClick={() => changeSection(3)}>
+      <button className="button" onClick={() => changeSection(2)}>
         Portfolio
       </button>
     </section>

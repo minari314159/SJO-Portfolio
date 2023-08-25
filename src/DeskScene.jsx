@@ -13,7 +13,8 @@ const DeskScene = () => {
 
   //3D Responsive Design
   const { viewport } = useThree();
-  const isMobile = window.innerWidth < 850;
+  const isTablet = window.innerWidth < 1024;
+  const isMobile = window.innerWidth < 426;
   const responsiveRatio = viewport.width / 12;
   const scaleRatio = Math.max(0.005, Math.min(0.002 * responsiveRatio, 0.002));
 
@@ -46,8 +47,8 @@ const DeskScene = () => {
         ref={model}
         scale={scaleRatio}
         position={[
-          isMobile ? 0.6 : 0.8,
-          isMobile ? -viewport.height / 6 : -0.2,
+          isTablet ? 0.6 : 0.8,
+          isTablet ? -viewport.height / 6 : -0.2,
           0,
         ]}
         rotation={[0, -0.26, 0]}
@@ -55,33 +56,33 @@ const DeskScene = () => {
         animate={"" + section}
         variants={{
           0: {
-            x: isMobile ? 0.6 : 0.78,
-            y: isMobile ? -viewport.height / 6 : -0.2,
-            z: isMobile ? 0.4 : 0,
+            x: isTablet ? 0.6 : 0.78,
+            y: isTablet ? -viewport.height / 6 : -0.2,
+            z: isTablet ? 0.4 : 0,
             opacity: 1,
             scale: scaleRatio,
             rotateY: -0.26,
             transition: { duration: 1, delay: 0.5 },
           },
           1: {
-            x: isMobile ? 1.2 : 1.3,
+            x: isTablet ? 1.2 : 1.3,
             y: -0.05,
             z: 1.4,
-            scale: isMobile ? 0.0055 : 0.006,
+            scale: isTablet ? 0.0055 : 0.006,
             rotateY: 0.79,
             rotateZ: 0.04,
             rotateX: -0.05,
             transition: { duration: 1, delay: 0.5 },
           },
           2: {
-            x: isMobile ? 1.9 : 1.85,
-            y: isMobile ? viewport.height / 7.7 : -0.3,
-            z: isMobile ? 1.95 : 2.1,
-            scale: isMobile ? 0.004 : 0.008,
+            x: isTablet ? 1.9 : 1.85,
+            y: isTablet ? viewport.height / 7.7 : -0.3,
+            z: isTablet ? 1.95 : 2.1,
+            scale: isTablet ? 0.004 : 0.008,
             rotateY: 0.75,
             rotateZ: 0.25,
             rotateX: -0.35,
-            transition: { duration: 1, delay: 0.5 },
+            transition: { duration: 1, delay: 0.2 },
           },
         }}
       >
@@ -1025,7 +1026,8 @@ const DeskScene = () => {
               transition: { duration: 1, delay: 0.7 },
             },
             2: {
-              scale: 0.6,
+              y: isMobile ? 104 : 110.1,
+              scale: isMobile ? 0.7 : 0.6,
 
               transition: { duration: 1, delay: 0.7 },
             },
