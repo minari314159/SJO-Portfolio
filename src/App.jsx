@@ -10,15 +10,19 @@ import Interface from "./Interface";
 import { Canvas } from "@react-three/fiber";
 import ScrollManager from "./ScrollManager";
 import Menu from "./Menu";
-import { useState, useRef } from "react";
+import LoadingScreen from "./LoadingScreen";
+import { useState, useRef, Suspense } from "react";
 
 export default function App() {
   const [section, changeSection] = useState(0);
+
+  const [started, setStarted] = useState(false);
 
   const dirLight = useRef();
 
   return (
     <>
+      <LoadingScreen started={started} setStarted={setStarted} />
       <Menu changeSection={changeSection} />
       <Canvas
         shadows
@@ -30,7 +34,6 @@ export default function App() {
           position: [2, 1, 2],
         }}
       >
-        {/* Helpers */}
         {/* <OrbitControls makeDefault /> */}
 
         {/* Scene */}
@@ -45,9 +48,9 @@ export default function App() {
 
         <ScrollControls pages={3} distance={1} damping={0.5}>
           <ScrollManager section={section} changeSection={changeSection} />
-          <DeskScene section={section} />
+          <Suspense>{started && <DeskScene section={section} />}</Suspense>
           <Scroll position={[0, 0]} html>
-            <Interface section={section} />
+            {started && <Interface section={section} />}
           </Scroll>
         </ScrollControls>
       </Canvas>
