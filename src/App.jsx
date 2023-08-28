@@ -11,19 +11,20 @@ import { Canvas } from "@react-three/fiber";
 import ScrollManager from "./ScrollManager";
 import Menu from "./Menu";
 import LoadingScreen from "./LoadingScreen";
-import { useState, useRef, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 
 export default function App() {
   const [section, changeSection] = useState(0);
-
+  const [open, setOpened] = useState(false);
   const [started, setStarted] = useState(false);
 
-  const dirLight = useRef();
-
+  useEffect(() => {
+    setOpened(false);
+  }, [section]);
   return (
     <>
       <LoadingScreen started={started} setStarted={setStarted} />
-      <Menu changeSection={changeSection} />
+      <Menu changeSection={changeSection} open={open} />
       <Canvas
         shadows
         dpr={[1, 2]}
@@ -39,18 +40,17 @@ export default function App() {
         {/* Scene */}
         <Environment preset="night" />
         <color args={["#000000"]} attach="background" />
-        <directionalLight
-          ref={dirLight}
-          castShadow
-          position={[1.5, 2, 0]}
-          intensity={1}
-        />
+        <directionalLight castShadow position={[1.5, 2, 0]} intensity={1} />
 
         <ScrollControls pages={3} distance={1} damping={0.5}>
           <ScrollManager section={section} changeSection={changeSection} />
-          <Suspense>{started && <DeskScene section={section} />}</Suspense>
+          <Suspense>
+            {started && (
+              <DeskScene section={section} open={open} setOpened={setOpened} />
+            )}
+          </Suspense>
           <Scroll position={[0, 0]} html>
-            {started && <Interface section={section} />}
+            {started && <Interface section={section} open={open} />}
           </Scroll>
         </ScrollControls>
       </Canvas>

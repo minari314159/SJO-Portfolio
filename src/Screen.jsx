@@ -1,7 +1,7 @@
 const Screen = () => {
   return (
     <section
-      className="h-[650px] w-[425px] md:h-[530px] md:w-[620px] lg:h-[680px] lg:w-[790px] xl:h-[680px] xl:w-[850px] outline-none border-none overflow-hidden screen bg-yellow-950"
+      className="md:w-[80vw] md:h-[60vh] lg:w-[65vw] lg:h-[60vh] xl:w-[65vw] xl:h-[85vh]   absolute md:top-[22vh] md:left-[12vw] lg:left-[22vw] xl:top-[11vh] xl:left-[6vw] outline-none border-none overflow-hidden screen  rounded-lg md:rounded-[3rem]"
       onClick={(event) => {
         event.stopPropagation();
       }}

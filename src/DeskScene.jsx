@@ -5,7 +5,7 @@ import { motion } from "framer-motion-3d";
 import { MotionConfig } from "framer-motion";
 import { useFrame, useThree } from "@react-three/fiber";
 
-const DeskScene = () => {
+const DeskScene = ({ open, setOpened }) => {
   const { nodes, materials } = useGLTF("/old_desk.gltf");
 
   const data = useScroll();
@@ -13,7 +13,7 @@ const DeskScene = () => {
 
   //3D Responsive Design
   const { viewport } = useThree();
-  const isTablet = window.innerWidth < 1024;
+  const isTablet = window.innerWidth <= 1024;
   const isMobile = window.innerWidth < 426;
   const responsiveRatio = viewport.width / 12;
   const scaleRatio = Math.max(0.005, Math.min(0.002 * responsiveRatio, 0.002));
@@ -51,6 +51,14 @@ const DeskScene = () => {
           isTablet ? -viewport.height / 6 : -0.2,
           0,
         ]}
+        onClick={() => {
+          if (section === 2) {
+            setOpened(!open);
+          } else {
+            setOpened(open);
+          }
+          console.log(section, open);
+        }}
         rotation={[0, -0.26, 0]}
         initial={{ opacity: 0 }}
         animate={"" + section}

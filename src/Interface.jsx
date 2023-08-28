@@ -1,15 +1,8 @@
 import { motion } from "framer-motion";
-import { useThree } from "@react-three/fiber";
+import LoadingButton from "./LoadingButton";
 import Screen from "./Screen";
-import { useState, useEffect } from "react";
-import { useScroll } from "@react-three/drei";
 
-const Interface = ({ section }) => {
-  const { viewport } = useThree();
-
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const data = useScroll();
-  const visible = data.scroll.current >= 0.9;
+const Interface = ({ section, open }) => {
   return (
     <>
       <motion.section
@@ -33,7 +26,7 @@ const Interface = ({ section }) => {
         </h3>
       </motion.section>
       <motion.section
-        className="h-screen w-screen p-8 max-w-screen-2xl mx-auto md:mx-4 xl:mx-4
+        className="h-screen w-screen p-8  mx-auto md:mx-4 xl:mx-[0rem]
         flex flex-col items-center md:items-end lg:items-start xl:items-end"
         initial={{ opacity: 0, x: 50 }}
         animate={"" + section}
@@ -56,19 +49,17 @@ const Interface = ({ section }) => {
         </h3>
       </motion.section>
       <motion.section
-        className="h-screen w-screen p-8 max-w-screen-2xl mx-[-2rem] my-[-3.5rem] md:mx-[4rem] md:my-[-7rem] lg:my-[-1rem] lg:mx-[-1rem] xl:mx-[6rem]
-        flex flex-col justify-end items-start"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={"" + section}
-        variants={{
-          1: {
-            opacity: 1,
-            scale: 1.05,
-            transition: { ease: "linear", duration: 0.2, delay: 0 },
-          },
+        className=" h-screen w-screen
+         relative"
+        initial={{ opacity: 0 }}
+        whileInView={{
+          opacity: 1,
+
+          transition: { ease: "linear", duration: 1, delay: 0.5 },
         }}
+        exit={{ opacity: 0, transition: { duration: 0, delay: 0.1 } }}
       >
-        <Screen />
+        {open ? <Screen /> : <LoadingButton />}
       </motion.section>
     </>
   );
