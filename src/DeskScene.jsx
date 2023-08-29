@@ -16,8 +16,10 @@ const DeskScene = ({ open, setOpened }) => {
   const isTablet = window.innerWidth <= 1024;
   const isMobile = window.innerWidth < 426;
   const responsiveRatio = viewport.width / 700;
-  const scaleRatio = Math.max(0.005, Math.min(0.002 * responsiveRatio, 0.002));
-console.log(viewport.width, responsiveRatio)
+  const scaleRatio = Math.min(
+    0.005,
+    Math.min(responsiveRatio, responsiveRatio)
+  );
   const model = useRef();
   const monitor = useRef();
 
@@ -45,7 +47,7 @@ console.log(viewport.width, responsiveRatio)
       <motion.group
         name="Scene_1"
         ref={model}
-        scale={responsiveRatio}
+        scale={scaleRatio}
         position={[
           isTablet ? 0.6 : 0.8,
           isTablet ? -viewport.height / 6 : -0.2,
@@ -57,7 +59,6 @@ console.log(viewport.width, responsiveRatio)
           } else {
             setOpened(open);
           }
-          console.log(section, open);
         }}
         rotation={[0, -0.26, 0]}
         initial={{ opacity: 0 }}
@@ -68,7 +69,7 @@ console.log(viewport.width, responsiveRatio)
             y: isTablet ? -viewport.height / 6 : -0.2,
             z: isTablet ? 0.4 : 0,
             opacity: 1,
-            scale: responsiveRatio,
+            scale: scaleRatio,
             rotateY: -0.26,
             transition: { duration: 1, delay: 0.5 },
           },
@@ -76,20 +77,20 @@ console.log(viewport.width, responsiveRatio)
             x: isTablet ? 1.2 : 1.3,
             y: -0.05,
             z: 1.4,
-            scale: isTablet ? 0.0055 : 0.006,
+            scale: isTablet ? 0.0055 : scaleRatio,
             rotateY: 0.79,
             rotateZ: 0.04,
             rotateX: -0.05,
             transition: { duration: 1, delay: 0.5 },
           },
           2: {
-            x: isTablet ? 1.9 : 1.85,
-            y: isTablet ? viewport.height / 7.7 : -0.3,
-            z: isTablet ? 1.95 : 2.1,
-            scale: isTablet ? 0.004 : 0.008,
+            x: isTablet ? 1.95 : 1.85,
+            y: isTablet ? viewport.height / 7.2 : -0.49,
+            z: 2,
+            scale: isTablet ? 0.004 : 0.009,
             rotateY: 0.75,
-            rotateZ: 0.25,
-            rotateX: -0.35,
+            rotateZ: 0.3,
+            rotateX: -0.43,
             transition: { duration: 1, delay: 0.2 },
           },
         }}

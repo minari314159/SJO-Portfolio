@@ -50,8 +50,10 @@ const Interface = ({ section, open }) => {
       </motion.section>
       <motion.section
         className=" h-screen w-screen
-         relative"
-        initial={{ opacity: 0 }}
+         flex justify-center items-center pt-[6rem] lg:pt-[7rem]"
+        initial={{
+          opacity: 0,
+        }}
         whileInView={{
           opacity: 1,
 
@@ -59,7 +61,9 @@ const Interface = ({ section, open }) => {
         }}
         exit={{ opacity: 0, transition: { duration: 0, delay: 0.1 } }}
       >
+        <div className="bg-transparent w-[500px] h-[580px] flex-[1.5] lg:flex-1" />
         {open ? <Screen /> : <LoadingButton />}
+        <div className="bg-transparent w-[490px] h-[580px] flex-[0.5] lg:flex-1" />
       </motion.section>
     </>
   );
