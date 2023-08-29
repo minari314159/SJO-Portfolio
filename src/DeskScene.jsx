@@ -15,9 +15,9 @@ const DeskScene = ({ open, setOpened }) => {
   const { viewport } = useThree();
   const isTablet = window.innerWidth <= 1024;
   const isMobile = window.innerWidth < 426;
-  const responsiveRatio = viewport.width / 12;
+  const responsiveRatio = viewport.width / 700;
   const scaleRatio = Math.max(0.005, Math.min(0.002 * responsiveRatio, 0.002));
-
+console.log(viewport.width, responsiveRatio)
   const model = useRef();
   const monitor = useRef();
 
@@ -45,7 +45,7 @@ const DeskScene = ({ open, setOpened }) => {
       <motion.group
         name="Scene_1"
         ref={model}
-        scale={scaleRatio}
+        scale={responsiveRatio}
         position={[
           isTablet ? 0.6 : 0.8,
           isTablet ? -viewport.height / 6 : -0.2,
@@ -68,7 +68,7 @@ const DeskScene = ({ open, setOpened }) => {
             y: isTablet ? -viewport.height / 6 : -0.2,
             z: isTablet ? 0.4 : 0,
             opacity: 1,
-            scale: scaleRatio,
+            scale: responsiveRatio,
             rotateY: -0.26,
             transition: { duration: 1, delay: 0.5 },
           },

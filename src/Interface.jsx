@@ -26,7 +26,7 @@ const Interface = ({ section, open }) => {
         </h3>
       </motion.section>
       <motion.section
-        className="h-screen w-screen p-8  mx-auto md:mx-4 xl:mx-[0rem]
+        className="h-screen w-screen p-8  mx-auto  
         flex flex-col items-center md:items-end lg:items-start xl:items-end"
         initial={{ opacity: 0, x: 50 }}
         animate={"" + section}
