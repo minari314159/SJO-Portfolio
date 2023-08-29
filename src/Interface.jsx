@@ -57,9 +57,9 @@ const Interface = ({ section, open }) => {
         whileInView={{
           opacity: 1,
 
-          transition: { ease: "linear", duration: 1, delay: 0.5 },
+          transition: { ease: "linear", duration: 1, delay: 1.4 },
         }}
-        exit={{ opacity: 0, transition: { duration: 0, delay: 0.1 } }}
+        exit={{ opacity: 0, transition: { duration: 0.1, delay: 0.1 } }}
       >
         <div className="bg-transparent w-[500px] h-[580px] flex-[1.5] lg:flex-1" />
         {open ? <Screen /> : <LoadingButton />}

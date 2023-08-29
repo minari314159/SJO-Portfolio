@@ -13,6 +13,7 @@ body,
   height: 100vh;
   background: black;
   font-family: "Abril Fatface";
+  overflow: hidden;
 }
 
 canvas {
