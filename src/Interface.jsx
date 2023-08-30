@@ -63,7 +63,7 @@ const Interface = ({ section, open }) => {
       >
         <div className="bg-transparent w-[500px] h-[580px] flex-[1.5] lg:flex-1" />
         {open ? <Screen /> : <LoadingButton />}
-        <div className="bg-transparent w-[490px] h-[580px] flex-[0.5] lg:flex-1" />
+        <div className="bg-transparent w-[490px] h-[580px] flex-[0.5] md:flex-1" />
       </motion.section>
     </>
   );
