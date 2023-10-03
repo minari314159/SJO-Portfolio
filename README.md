@@ -9,7 +9,7 @@
 
 - 🌱 I’m currently learning **node.js and express**
 
-- 💬 Ask me about **React, Three.js and R3F**
+- 💬 Ask me about **Next.Js, React, Three.js and R3F**
 
 - 📫 How to reach me **ucbqolsen@gmail.com**
 
