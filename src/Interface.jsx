@@ -57,7 +57,7 @@ const Interface = ({ section, open }) => {
         whileInView={{
           opacity: 1,
 
-          transition: { ease: "linear", duration: 1, delay: 1.4 },
+          transition: { ease: "linear", duration: 1, delay: 2 },
         }}
         exit={{ opacity: 0, transition: { duration: 0.1, delay: 0.1 } }}
       >
