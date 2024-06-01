@@ -3,6 +3,7 @@ import {
 	Scroll,
 	Environment,
 	OrbitControls,
+	Preload,
 } from "@react-three/drei";
 import DeskScene from "./DeskScene";
 
@@ -32,15 +33,23 @@ export default function App() {
 					fov: 45,
 					near: 0.1,
 					far: 1000,
-					position: [2, 1, 2],
+					position: [0, 0, 0],
 				}}>
-				{/* <OrbitControls makeDefault /> */}
+				<OrbitControls
+					makeDefault
+					minAzimuthAngle={Math.PI / 6}
+					maxAzimuthAngle={Math.PI / 3}
+					minPolarAngle={Math.PI / 3}
+					maxPolarAngle={Math.PI / 3}
+					enableZoom={false}
+					enablePan={false}
+				/>
 
 				{/* Scene */}
 				<Environment preset="night" />
-				<color args={["#000000"]} attach="background" />
-				<directionalLight castShadow position={[1.5, 2, 0]} intensity={1} />
+				<color args={["#252728"]} attach="background" />
 
+				{/* Scroll Controls */}
 				<ScrollControls pages={3} distance={1} damping={0.5}>
 					<ScrollManager section={section} changeSection={changeSection} />
 					<Suspense>
@@ -52,6 +61,7 @@ export default function App() {
 						{started && <Interface section={section} open={open} />}
 					</Scroll>
 				</ScrollControls>
+				<Preload all />
 			</Canvas>
 		</>
 	);
