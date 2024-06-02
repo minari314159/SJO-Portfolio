@@ -24,7 +24,7 @@ const Interface = ({ section }) => {
 			</motion.section>
 			<motion.section
 				className="h-screen w-screen p-8  
-        flex flex-col items-center md:items-end  lg:items-start xl:items-end"
+        flex flex-col items-center md:items-end  "
 				initial={{ opacity: 0, x: 50 }}
 				animate={"" + section}
 				variants={{
@@ -34,7 +34,7 @@ const Interface = ({ section }) => {
 						transition: { ease: "linear", duration: 1, delay: 0.4 },
 					},
 				}}>
-				<h1 className="text-white text-[40px] lg:text-[60px] xl:text-[70px] text-center md:text-right mt-[6rem] lg:text-left xl:text-right">
+				<h1 className="text-white text-[40px] lg:text-[60px] xl:text-[70px] text-center md:text-right mt-[6rem] ">
 					Sit down, <br className="hidden md:flex" />
 					Turn it on,
 					<br className="hidden md:flex" />

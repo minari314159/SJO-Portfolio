@@ -53,11 +53,13 @@ export default function App() {
 				{/* Scroll Controls */}
 				<ScrollControls pages={3} distance={1} damping={0.01}>
 					<ScrollManager section={section} changeSection={changeSection} />
+
 					<Suspense>
 						{started && (
 							<DeskScene section={section} open={open} setOpened={setOpened} />
 						)}
 					</Suspense>
+
 					<Scroll position={[0, 0]} html>
 						{started && <Interface section={section} open={open} />}
 					</Scroll>
