@@ -19,8 +19,8 @@ export const geoVariants = {
 	},
 	2: {
 		rotateY: 0,
-		x: -0.4,
-
+		x: -0.3,
+		scale: 0.006,
 		transition: {
 			duration: 1,
 			type: "tween",

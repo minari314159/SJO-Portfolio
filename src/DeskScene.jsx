@@ -6,6 +6,7 @@ import {
 	useScroll,
 	useTexture,
 	Sparkles,
+	Html,
 } from "@react-three/drei";
 import * as THREE from "three";
 import { motion } from "framer-motion-3d";
@@ -20,17 +21,12 @@ const DeskScene = ({ ...props }) => {
 	texture.colorSpace = THREE.SRGBColorSpace;
 	const data = useScroll();
 	const [section, setSection] = useState(0);
-	console.log(
-		data.pages,
-		data.scroll.current,
-		"returns:" + data.scroll.current * data.pages,
-		section
-	);
+	console.log(section);
 	const animate = useAnimation();
 	const textureMaterial = new THREE.MeshStandardMaterial({
 		map: texture,
 	});
-	const model = useRef();
+	const screen = useRef();
 
 	useFrame((state) => {
 		let currentSection = Math.floor(data.scroll.current * data.pages);
@@ -39,7 +35,7 @@ const DeskScene = ({ ...props }) => {
 			setSection(0);
 		} else if (currentSection === 1) {
 			setSection(1);
-		} else if (currentSection === 2) {
+		} else if (currentSection >= 2) {
 			setSection(2);
 		}
 	});
@@ -48,7 +44,7 @@ const DeskScene = ({ ...props }) => {
 			animate.start(geoVariants[0]);
 		} else if (section === 1) {
 			animate.start(geoVariants[1]);
-		} else if (section === 2) {
+		} else if (section >= 2) {
 			animate.start(geoVariants[2]);
 		}
 	}, [section]);
@@ -57,7 +53,6 @@ const DeskScene = ({ ...props }) => {
 		<Bounds fit clip observe margin={0.2}>
 			<motion.group
 				name="Node_0"
-				ref={model}
 				scale={0.004}
 				{...props}
 				dispose={null}
@@ -1029,11 +1024,22 @@ const DeskScene = ({ ...props }) => {
 					/>
 					<mesh
 						name="Screen"
+						ref={screen}
 						geometry={nodes.Screen.geometry}
 						position={[-20.986, 62.226, 17.526]}
 						rotation={[Math.PI / 2, 0, 0]}
 						scale={[168.34, 168.34, 147.105]}>
 						<meshStandardMaterial emissive="#ffffff" emissiveIntensity={2} />
+						<Html
+							transform
+							center
+							rotation-x={-Math.PI / 2}
+							position={[0, 0, 0]}
+							className=" w-5 h-3 flex justify-center items-center ">
+							<h1 className="text-gray-600 text-[0.15rem] text-center ">
+								Click to Enter_
+							</h1>
+						</Html>
 					</mesh>
 				</group>
 				<Float floatIntensity={0.5} rotationIntensity={0.3}>
