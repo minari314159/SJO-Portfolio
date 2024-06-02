@@ -25,20 +25,21 @@ export default function App() {
 	return (
 		<>
 			<LoadingScreen started={started} setStarted={setStarted} />
-			<Menu changeSection={changeSection} open={open} />
+			<Menu changeSection={changeSection} section={section} open={open} />
 			<Canvas
 				shadows
 				dpr={[1, 2]}
+				orthographic
 				camera={{
-					fov: 45,
-					near: 0.1,
-					far: 1000,
-					position: [0, 0, 0],
+					position: [0, 0, 3],
+					left: -2,
+					right: 2,
+					top: 2,
+					bottom: 2,
+					zoom: 100,
 				}}>
 				<OrbitControls
 					makeDefault
-					minAzimuthAngle={Math.PI / 6}
-					maxAzimuthAngle={Math.PI / 3}
 					minPolarAngle={Math.PI / 3}
 					maxPolarAngle={Math.PI / 3}
 					enableZoom={false}
@@ -50,7 +51,7 @@ export default function App() {
 				<color args={["#252728"]} attach="background" />
 
 				{/* Scroll Controls */}
-				<ScrollControls pages={3} distance={1} damping={0.5}>
+				<ScrollControls pages={3} distance={1} damping={0.01}>
 					<ScrollManager section={section} changeSection={changeSection} />
 					<Suspense>
 						{started && (

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState, useRef } from "react";
 import {
 	useGLTF,
 	Float,
@@ -14,18 +14,15 @@ import { useFrame } from "@react-three/fiber";
 
 const DeskScene = ({ ...props }) => {
 	const { nodes, materials } = useGLTF("./model/desk_scene.glb");
-
 	const texture = useTexture("/textures/baked.jpg");
 	texture.flipY = false;
 	texture.colorSpace = THREE.SRGBColorSpace;
-
 	const data = useScroll();
 	const [section, setSection] = useState(0);
-	console.log(section);
 	const textureMaterial = new THREE.MeshStandardMaterial({
 		map: texture,
 	});
-
+	const model = useRef();
 	const framerMotionConfig = {
 		type: "tween",
 		mass: 5,
@@ -37,43 +34,32 @@ const DeskScene = ({ ...props }) => {
 
 	useFrame((state) => {
 		let currentSection = Math.floor(data.scroll.current * data.pages);
-		if (currentSection >= 2) {
-			currentSection = 2;
-		}
-		if (currentSection != section) {
-			setSection(currentSection);
+		state.camera.lookAt(0, 0.3, 0);
+		if (currentSection === 2) {
+			setSection(2);
+		} else if (currentSection === 1) {
+			setSection(1);
+		} else if (currentSection === 0) {
+			setSection(0);
 		}
 	});
 
 	return (
 		<MotionConfig config={framerMotionConfig}>
-			<Bounds fit clip observe margin={0.3}>
+			<Bounds fit clip observe margin={0.2}>
 				<motion.group
 					name="Node_0"
+					ref={model}
 					scale={0.004}
 					{...props}
 					dispose={null}
-					initial={{ opacity: 0 }}
+					position={[0.1, 0, -0.1]}
+					initial={0}
 					animate={"" + section}
 					variants={{
-						0: {
-							opacity: 1,
-							transition: { duration: 1, delay: 0.5 },
-							rotateY: 0.2,
-							scale: 0.0045,
-						},
-						1: {
-							rotateY: 0.5,
-							scale: 0.007,
-							transition: { duration: 1, delay: 0.5 },
-						},
-						2: {
-							rotateY: 0.95,
-							rotateX: -0.1,
-							rotateZ: 0.1,
-							scale: 0.007,
-							transition: { duration: 1, delay: 0.2 },
-						},
+						0: { rotateY: -0.5, transition: { duration: 0.5 } },
+						1: { rotateY: 0.5, transition: { duration: 0.5 } },
+						2: { rotateY: 0, transition: { duration: 0.5 } },
 					}}>
 					<pointLight
 						name="Point"
@@ -93,6 +79,15 @@ const DeskScene = ({ ...props }) => {
 								fog
 							/>
 						</mesh>
+						<spotLight
+							name="Spot"
+							intensity={1}
+							angle={0.437}
+							penumbra={0.095}
+							decay={2}
+							position={[0, 4.195, 0]}
+							rotation={[-1.681, -0.012, -0.001]}
+						/>
 
 						<mesh
 							name="Floor_2"
@@ -103,15 +98,6 @@ const DeskScene = ({ ...props }) => {
 							name="Floor_3"
 							geometry={nodes.Floor_3.geometry}
 							material={materials["Material.022"]}
-						/>
-						<spotLight
-							name="Spot"
-							intensity={2}
-							angle={0.437}
-							penumbra={0.095}
-							decay={2}
-							position={[-0.131, 4.195, -0.521]}
-							rotation={[-1.681, -0.012, -0.001]}
 						/>
 						<group
 							name="stone_with_moss_4001"
@@ -822,143 +808,146 @@ const DeskScene = ({ ...props }) => {
 							scale={[4.881, 0.888, 1]}
 						/>
 					</group>
-					<group
-						name="Plant_Plant"
-						position={[-64.033, 109.369, 3.44]}
-						rotation={[0, 0.478, 0]}
-						scale={[0.227, 0.23, 0.234]}>
-						<group name="stems" position={[-3.258, 269.876, -11.028]}>
-							<mesh
-								name="stem"
-								geometry={nodes.stem.geometry}
-								material={materials.Material_44}
-								position={[10.005, -121.686, 21.355]}
-								rotation={[-1.338, 0.024, 1.671]}
-								scale={0.163}
-							/>
-							<mesh
-								name="stemv2"
-								geometry={nodes.stemv2.geometry}
-								material={materials.Material_44}
-								position={[33.836, -126.136, 11.205]}
-								rotation={[-Math.PI / 2, 0.155, 2.495]}
-								scale={0.113}
-							/>
-							<mesh
-								name="stemv3"
-								geometry={nodes.stemv3.geometry}
-								material={materials.Material_44}
-								position={[-0.645, -122.856, 15.124]}
-								rotation={[-1.725, -0.016, -0.58]}
-								scale={0.185}
-							/>
-						</group>
+					<Float floatIntensity={0.5} rotationIntensity={0.3}>
 						<group
-							name="baban_1"
-							position={[-13.499, 199.823, -4.452]}
-							rotation={[-3.065, 0.887, 1.874]}
-							scale={[217.353, 216.801, 217.938]}>
+							name="Plant_Plant"
+							position={[-64.033, 110, 5]}
+							rotation={[0, 0.478, 0]}
+							scale={[0.227, 0.23, 0.234]}>
+							<group name="stems" position={[-3.258, 269.876, -11.028]}>
+								<mesh
+									name="stem"
+									geometry={nodes.stem.geometry}
+									material={materials.Material_44}
+									position={[10.005, -121.686, 21.355]}
+									rotation={[-1.338, 0.024, 1.671]}
+									scale={0.163}
+								/>
+								<mesh
+									name="stemv2"
+									geometry={nodes.stemv2.geometry}
+									material={materials.Material_44}
+									position={[33.836, -126.136, 11.205]}
+									rotation={[-Math.PI / 2, 0.155, 2.495]}
+									scale={0.113}
+								/>
+								<mesh
+									name="stemv3"
+									geometry={nodes.stemv3.geometry}
+									material={materials.Material_44}
+									position={[-0.645, -122.856, 15.124]}
+									rotation={[-1.725, -0.016, -0.58]}
+									scale={0.185}
+								/>
+							</group>
+							<group
+								name="baban_1"
+								position={[-13.499, 199.823, -4.452]}
+								rotation={[-3.065, 0.887, 1.874]}
+								scale={[217.353, 216.801, 217.938]}>
+								<mesh
+									name="Plane003"
+									geometry={nodes.Plane003.geometry}
+									material={materials["Material.024"]}
+								/>
+								<mesh
+									name="Plane003_1"
+									geometry={nodes.Plane003_1.geometry}
+									material={materials["Material.028"]}
+								/>
+								<mesh
+									name="Plane003_2"
+									geometry={nodes.Plane003_2.geometry}
+									material={materials["Material.022"]}
+								/>
+								<mesh
+									name="Plane003_3"
+									geometry={nodes.Plane003_3.geometry}
+									material={materials["Material.021"]}
+								/>
+							</group>
+
+							<group
+								name="banan_3"
+								position={[-0.526, 147.79, 11.625]}
+								rotation={[0.286, 0.457, -0.887]}
+								scale={[435.377, 437.794, 430.988]}>
+								<mesh
+									name="Plane001"
+									geometry={nodes.Plane001.geometry}
+									material={materials["Material.024"]}
+								/>
+								<mesh
+									name="Plane001_1"
+									geometry={nodes.Plane001_1.geometry}
+									material={materials["Material.028"]}
+								/>
+								<mesh
+									name="Plane001_2"
+									geometry={nodes.Plane001_2.geometry}
+									material={materials["Material.022"]}
+								/>
+							</group>
+							<group
+								name="banan_3001"
+								position={[32.484, 147.79, 15.332]}
+								rotation={[1.949, 0.888, -2.524]}
+								scale={[432.457, 433.388, 438.318]}>
+								<mesh
+									name="Plane007"
+									geometry={nodes.Plane007.geometry}
+									material={materials["Material.024"]}
+								/>
+								<mesh
+									name="Plane007_1"
+									geometry={nodes.Plane007_1.geometry}
+									material={materials["Material.028"]}
+								/>
+								<mesh
+									name="Plane007_2"
+									geometry={nodes.Plane007_2.geometry}
+									material={materials["Material.022"]}
+								/>
+							</group>
+							<group
+								name="banan_3002"
+								position={[23.109, 147.79, -10.571]}
+								rotation={[2.419, 0.398, 2.729]}
+								scale={[439.348, 432.205, 432.597]}>
+								<mesh
+									name="Plane008"
+									geometry={nodes.Plane008.geometry}
+									material={materials["Material.024"]}
+								/>
+								<mesh
+									name="Plane008_1"
+									geometry={nodes.Plane008_1.geometry}
+									material={materials["Material.028"]}
+								/>
+								<mesh
+									name="Plane008_2"
+									geometry={nodes.Plane008_2.geometry}
+									material={materials["Material.022"]}
+								/>
+							</group>
 							<mesh
-								name="Plane003"
-								geometry={nodes.Plane003.geometry}
-								material={materials["Material.024"]}
+								name="land"
+								geometry={nodes.land.geometry}
+								material={materials.Table}
+								position={[1.961, 147.79, 12.864]}
+								rotation={[-Math.PI / 2, 0, 1.674]}
+								scale={1.68}
 							/>
 							<mesh
-								name="Plane003_1"
-								geometry={nodes.Plane003_1.geometry}
-								material={materials["Material.028"]}
-							/>
-							<mesh
-								name="Plane003_2"
-								geometry={nodes.Plane003_2.geometry}
-								material={materials["Material.022"]}
-							/>
-							<mesh
-								name="Plane003_3"
-								geometry={nodes.Plane003_3.geometry}
-								material={materials["Material.021"]}
+								name="Pot"
+								geometry={nodes.Pot.geometry}
+								material={materials.Pot}
+								position={[1.807, 76.2, 11.423]}
+								rotation={[0, 1.196, 0]}
+								scale={[4.383, 4.351, 4.307]}
 							/>
 						</group>
-						<group
-							name="banan_3"
-							position={[-0.526, 147.79, 11.625]}
-							rotation={[0.286, 0.457, -0.887]}
-							scale={[435.377, 437.794, 430.988]}>
-							<mesh
-								name="Plane001"
-								geometry={nodes.Plane001.geometry}
-								material={materials["Material.024"]}
-							/>
-							<mesh
-								name="Plane001_1"
-								geometry={nodes.Plane001_1.geometry}
-								material={materials["Material.028"]}
-							/>
-							<mesh
-								name="Plane001_2"
-								geometry={nodes.Plane001_2.geometry}
-								material={materials["Material.022"]}
-							/>
-						</group>
-						<group
-							name="banan_3001"
-							position={[32.484, 147.79, 15.332]}
-							rotation={[1.949, 0.888, -2.524]}
-							scale={[432.457, 433.388, 438.318]}>
-							<mesh
-								name="Plane007"
-								geometry={nodes.Plane007.geometry}
-								material={materials["Material.024"]}
-							/>
-							<mesh
-								name="Plane007_1"
-								geometry={nodes.Plane007_1.geometry}
-								material={materials["Material.028"]}
-							/>
-							<mesh
-								name="Plane007_2"
-								geometry={nodes.Plane007_2.geometry}
-								material={materials["Material.022"]}
-							/>
-						</group>
-						<group
-							name="banan_3002"
-							position={[23.109, 147.79, -10.571]}
-							rotation={[2.419, 0.398, 2.729]}
-							scale={[439.348, 432.205, 432.597]}>
-							<mesh
-								name="Plane008"
-								geometry={nodes.Plane008.geometry}
-								material={materials["Material.024"]}
-							/>
-							<mesh
-								name="Plane008_1"
-								geometry={nodes.Plane008_1.geometry}
-								material={materials["Material.028"]}
-							/>
-							<mesh
-								name="Plane008_2"
-								geometry={nodes.Plane008_2.geometry}
-								material={materials["Material.022"]}
-							/>
-						</group>
-						<mesh
-							name="land"
-							geometry={nodes.land.geometry}
-							material={materials.Table}
-							position={[1.961, 147.79, 12.864]}
-							rotation={[-Math.PI / 2, 0, 1.674]}
-							scale={1.68}
-						/>
-						<mesh
-							name="Pot"
-							geometry={nodes.Pot.geometry}
-							material={materials.Pot}
-							position={[1.807, 76.2, 11.423]}
-							rotation={[0, 1.196, 0]}
-							scale={[4.383, 4.351, 4.307]}
-						/>
-					</group>
+					</Float>
 					<group
 						name="TV_Old"
 						position={[23.45, 110.148, -27.421]}
@@ -1047,14 +1036,16 @@ const DeskScene = ({ ...props }) => {
 							<meshStandardMaterial emissive="#ffffff" emissiveIntensity={2} />
 						</mesh>
 					</group>
-					<mesh
-						name="Mouse"
-						geometry={nodes.Mouse.geometry}
-						material={materials.Keyboard_Mouse}
-						position={[78.921, 109.779, 23.933]}
-						rotation={[Math.PI, -0.078, Math.PI]}
-						scale={[0.102, 0.102, 0.157]}
-					/>
+					<Float floatIntensity={0.5} rotationIntensity={0.3}>
+						<mesh
+							name="Mouse"
+							geometry={nodes.Mouse.geometry}
+							material={materials.Keyboard_Mouse}
+							position={[78.921, 110, 23.933]}
+							rotation={[Math.PI, -0.078, Math.PI]}
+							scale={[0.102, 0.102, 0.157]}
+						/>
+					</Float>
 					<mesh
 						name="Table"
 						geometry={nodes.Table.geometry}
