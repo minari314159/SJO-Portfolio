@@ -6,43 +6,26 @@
 html,
 body,
 #root {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: black;
-  font-family: "Abril Fatface";
-  overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: black;
+	font-family: "Abril Fatface";
+	overflow: hidden;
 }
-
-canvas {
-  touch-action: none;
-}
-
 
 /* 
 Menu */
 
-.button {
-  color: white;
-  background: transparent;
-  font-size: 30px;
-  border: none;
-  cursor: pointer;
-}
-
-.button:hover {
-  color: gray;
-}
-
 .screen {
-  box-shadow: inset 6px 6px 5px 0 rgba(0, 0, 0, 0.2),
-    inset -6px -6px 8px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: inset 6px 6px 5px 0 rgba(0, 0, 0, 0.2),
+		inset -6px -6px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 iframe {
-  width: 100%;
-  height: 100%;
-  opacity: 90%;
+	width: 100%;
+	height: 100%;
+	opacity: 90%;
 }

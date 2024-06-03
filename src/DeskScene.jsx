@@ -14,18 +14,31 @@ import { useAnimation } from "framer-motion";
 import { geoVariants } from "./utils/motions";
 
 const DeskScene = ({ ...props }) => {
-	const { nodes, materials } = useGLTF("./model/desk_scene.glb");
+	const { nodes, materials, animations } = useGLTF("./model/desk_scene.glb");
+
 	const texture = useTexture("/textures/baked.jpg");
+
 	texture.flipY = false;
 	texture.colorSpace = THREE.SRGBColorSpace;
 	const data = useScroll();
+
 	const [section, setSection] = useState(0);
-	console.log(section);
+
 	const animate = useAnimation();
 	const textureMaterial = new THREE.MeshStandardMaterial({
 		map: texture,
 	});
 	const screen = useRef();
+
+	useEffect(() => {
+		if (section === 0) {
+			animate.start(geoVariants[0]);
+		} else if (section === 1) {
+			animate.start(geoVariants[1]);
+		} else if (section >= 2) {
+			animate.start(geoVariants[2]);
+		}
+	}, [section]);
 
 	useFrame((state) => {
 		let currentSection = Math.floor(data.scroll.current * data.pages);
@@ -38,15 +51,6 @@ const DeskScene = ({ ...props }) => {
 			setSection(2);
 		}
 	});
-	useEffect(() => {
-		if (section === 0) {
-			animate.start(geoVariants[0]);
-		} else if (section === 1) {
-			animate.start(geoVariants[1]);
-		} else if (section >= 2) {
-			animate.start(geoVariants[2]);
-		}
-	}, [section]);
 
 	return (
 		<Bounds fit clip observe margin={0.2}>
@@ -69,13 +73,7 @@ const DeskScene = ({ ...props }) => {
 				/>
 				<group name="Floor" position={[-4.497, -4.551, 82.786]} scale={100}>
 					<mesh name="Floor_1" geometry={nodes.Floor_1.geometry} scale={3}>
-						<meshStandardMaterial
-							color="#252728"
-							roughness={0.3}
-							metalness={1}
-							vertexColors
-							fog
-						/>
+						<meshPhongMaterial color="#ff0000" opacity={0} transparent />
 					</mesh>
 					<spotLight
 						name="Spot"
@@ -1021,6 +1019,7 @@ const DeskScene = ({ ...props }) => {
 						position={[47.394, 45.562, 23.5]}
 						rotation={[0, 1.571, 0]}
 					/>
+
 					<mesh
 						name="Screen"
 						ref={screen}

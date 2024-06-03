@@ -3,6 +3,7 @@ import {
 	Scroll,
 	Environment,
 	Preload,
+	Bounds,
 } from "@react-three/drei";
 import DeskScene from "./DeskScene";
 
@@ -11,7 +12,7 @@ import { Canvas } from "@react-three/fiber";
 import ScrollManager from "./ScrollManager";
 import Menu from "./Menu";
 import LoadingScreen from "./LoadingScreen";
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 
 export default function App() {
 	const [section, changeSection] = useState(0);
@@ -32,11 +33,10 @@ export default function App() {
 					right: 2,
 					top: 2,
 					bottom: 2,
-					zoom: 100,
 				}}>
 				{/* Scene */}
 				<Environment preset="night" />
-				<color args={["#252728"]} attach="background" />
+				<color args={["#000000"]} attach="background" />
 
 				{/* Scroll Controls */}
 				<ScrollControls pages={3} distance={1} damping={0.01}>
