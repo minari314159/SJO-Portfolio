@@ -1048,7 +1048,7 @@ const DeskScene = ({ ...props }) => {
 					scale={[1.202, 1, 1]}
 				/>
 			</motion.group>
-			<Sparkles position={[0, 0.5, 0]} scale={[3, 2, 2]} size={2} speed={0.4} />
+			<Sparkles position={[0, 0.5, 0]} scale={[5, 5, 5]} size={4} speed={0.4} />
 		</Bounds>
 	);
 };
