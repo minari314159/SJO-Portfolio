@@ -6,7 +6,6 @@ import {
 	useScroll,
 	useTexture,
 	Sparkles,
-	Html,
 } from "@react-three/drei";
 import * as THREE from "three";
 import { motion } from "framer-motion-3d";
@@ -1030,16 +1029,6 @@ const DeskScene = ({ ...props }) => {
 						rotation={[Math.PI / 2, 0, 0]}
 						scale={[168.34, 168.34, 147.105]}>
 						<meshStandardMaterial emissive="#ffffff" emissiveIntensity={2} />
-						<Html
-							transform
-							center
-							rotation-x={-Math.PI / 2}
-							position={[0, 0, 0]}
-							className=" w-5 h-3 flex justify-center items-center ">
-							<h1 className="text-gray-600 text-[0.15rem] text-center ">
-								Click to Enter_
-							</h1>
-						</Html>
 					</mesh>
 				</group>
 				<Float floatIntensity={0.5} rotationIntensity={0.3}>
