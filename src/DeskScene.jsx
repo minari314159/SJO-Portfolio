@@ -152,665 +152,667 @@ const DeskScene = ({ ...props }) => {
 						/>
 					</group>
 				</group>
-				<group
-					name="KeyBoard"
-					position={[18.716, 128.393, 20.524]}
-					rotation={[0.094, 0, 0]}
-					scale={0.164}>
-					<group name="?" position={[132.813, -95.45, 21.053]}>
+				<Float floatIntensity={0.2} rotationIntensity={-0.25}>
+					<group
+						name="KeyBoard"
+						position={[18.716, 128.393, 20.524]}
+						rotation={[0.094, 0, 0]}
+						scale={0.164}>
+						<group name="?" position={[132.813, -95.45, 21.053]}>
+							<mesh
+								name="?001"
+								geometry={nodes["?001"].geometry}
+								material={materials.Material_12}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="?002"
+								geometry={nodes["?002"].geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="A" position={[-152.798, -95.45, -17.089]}>
+							<mesh
+								name="A001"
+								geometry={nodes.A001.geometry}
+								material={materials.Material_36}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="A002"
+								geometry={nodes.A002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="alt_2" position={[168.258, -95.45, 59.812]}>
+							<mesh
+								name="alt"
+								geometry={nodes.alt.geometry}
+								material={materials.Material_39}
+								position={[-3.401, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="alt001"
+								geometry={nodes.alt001.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="alt002" position={[-129.732, -95.45, 59.812]}>
+							<mesh
+								name="alt003"
+								geometry={nodes.alt003.geometry}
+								material={materials.Material_40}
+								position={[-3.401, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="alt004"
+								geometry={nodes.alt004.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="B" position={[20.56, -95.45, 21.053]}>
+							<mesh
+								name="B001"
+								geometry={nodes.B001.geometry}
+								material={materials.Material_30}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="B002"
+								geometry={nodes.B002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="C" position={[-59.234, -80.622, 30.087]}>
+							<mesh
+								name="C001"
+								geometry={nodes.C001.geometry}
+								material={materials.Material_4}
+								position={[4.512, -13.666, -9.034]}
+								scale={[1, 0.888, 1]}
+							/>
+							<mesh
+								name="C002"
+								geometry={nodes.C002.geometry}
+								material={materials.Material_33}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+						</group>
+						<group name="caps" position={[-199.286, -95.45, -17.319]}>
+							<mesh
+								name="Cap"
+								geometry={nodes.Cap.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, -0.13]}
+								scale={[4.881, 0.888, 1]}
+							/>
+							<mesh
+								name="caps001"
+								geometry={nodes.caps001.geometry}
+								material={materials.Material_7}
+								position={[-7.956, 14.828, 9.587]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+						</group>
+						<group name="cmd" position={[-90.166, -95.448, 59.812]}>
+							<mesh
+								name="CMD002"
+								geometry={nodes.CMD002.geometry}
+								material={materials.Material_26}
+								position={[-1.505, 14.829, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="CMD003"
+								geometry={nodes.CMD003.geometry}
+								material={materials.Material_4}
+								position={[0, 1.16, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="cmd_2" position={[126.598, -95.448, 59.812]}>
+							<mesh
+								name="CMD"
+								geometry={nodes.CMD.geometry}
+								material={materials.Material_25}
+								position={[-1.505, 14.829, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="CMD001"
+								geometry={nodes.CMD001.geometry}
+								material={materials.Material_4}
+								position={[0, 1.16, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="crtl" position={[-168.812, -95.448, 59.812]}>
+							<mesh
+								name="Crtl"
+								geometry={nodes.Crtl.geometry}
+								material={materials.Material_24}
+								position={[-0.095, 14.829, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="Crtl001"
+								geometry={nodes.Crtl001.geometry}
+								material={materials.Material_4}
+								position={[0, 1.16, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="D" position={[-78.33, -95.45, -17.089]}>
+							<mesh
+								name="D001"
+								geometry={nodes.D001.geometry}
+								material={materials.Material_38}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="D002"
+								geometry={nodes.D002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="del" position={[208.571, -95.45, -57.012]}>
+							<mesh
+								name="Del"
+								geometry={nodes.Del.geometry}
+								material={materials.Inner_Monitor}
+								position={[5.24, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="Del001"
+								geometry={nodes.Del001.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="E" position={[-90.477, -95.45, -57.012]}>
+							<mesh
+								name="E001"
+								geometry={nodes.E001.geometry}
+								material={materials.Material_20}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="E002"
+								geometry={nodes.E002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="F" position={[-41.416, 115.919, -17.089]}>
+							<mesh
+								name="F001"
+								geometry={nodes.F001.geometry}
+								material={materials.Material_23}
+								position={[-4.512, -192.17, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="F002"
+								geometry={nodes.F002.geometry}
+								material={materials.Material_4}
+								position={[0, -210.207, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="G" position={[-3.321, -95.45, -17.089]}>
+							<mesh
+								name="G001"
+								geometry={nodes.G001.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+							<mesh
+								name="G002"
+								geometry={nodes.G002.geometry}
+								material={materials.Material_32}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+						</group>
+						<group name="H" position={[33.593, -95.45, -17.089]}>
+							<mesh
+								name="H001"
+								geometry={nodes.H001.geometry}
+								material={materials.Material_18}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="H002"
+								geometry={nodes.H002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="I" position={[97.369, -95.45, -57.012]}>
+							<mesh
+								name="I001"
+								geometry={nodes.I001.geometry}
+								material={materials.Material_28}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="I002"
+								geometry={nodes.I002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="J" position={[71.962, -95.45, -17.089]}>
+							<mesh
+								name="J001"
+								geometry={nodes.J001.geometry}
+								material={materials.Material_29}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="J002"
+								geometry={nodes.J002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="K" position={[108.876, -95.45, -17.089]}>
+							<mesh
+								name="K001"
+								geometry={nodes.K001.geometry}
+								material={materials.Material_15}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="K002"
+								geometry={nodes.K002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="L" position={[146.26, -95.45, -17.089]}>
+							<mesh
+								name="L001"
+								geometry={nodes.L001.geometry}
+								material={materials.Material_11}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="L002"
+								geometry={nodes.L002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="M" position={[94.859, -95.45, 21.053]}>
+							<mesh
+								name="M001"
+								geometry={nodes.M001.geometry}
+								material={materials.Material_13}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="M002"
+								geometry={nodes.M002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="N" position={[57.474, -95.45, 21.053]}>
+							<mesh
+								name="N001"
+								geometry={nodes.N001.geometry}
+								material={materials.Material_16}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="N002"
+								geometry={nodes.N002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="O" position={[134.283, -95.45, -57.012]}>
+							<mesh
+								name="O001"
+								geometry={nodes.O001.geometry}
+								material={materials.Material_14}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="O002"
+								geometry={nodes.O002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="P" position={[171.668, -95.45, -57.012]}>
+							<mesh
+								name="P001"
+								geometry={nodes.P001.geometry}
+								material={materials.Material_10}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="P002"
+								geometry={nodes.P002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="Q" position={[-165.744, -95.45, -57.012]}>
+							<mesh
+								name="Q001"
+								geometry={nodes.Q001.geometry}
+								material={materials.Material_34}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="Q002"
+								geometry={nodes.Q002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="R" position={[-152.798, -95.45, -17.089]}>
+							<mesh
+								name="R001"
+								geometry={nodes.R001.geometry}
+								material={materials.Material_4}
+								position={[99.876, 1.161, -39.924]}
+								scale={[1, 0.888, 1]}
+							/>
+							<mesh
+								name="R002"
+								geometry={nodes.R002.geometry}
+								material={materials.Material_37}
+								position={[95.364, 14.828, -30.89]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+						</group>
+						<group name="return" position={[196.532, -95.45, -17.319]}>
+							<mesh
+								name="Return"
+								geometry={nodes.Return.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, -0.13]}
+								scale={[4.881, 0.888, 1]}
+							/>
+							<mesh
+								name="return001"
+								geometry={nodes.return001.geometry}
+								material={materials.Material_6}
+								position={[4.362, 14.828, 9.587]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+						</group>
+						<group name="S" position={[-115.884, 115.919, -17.089]}>
+							<mesh
+								name="S001"
+								geometry={nodes.S001.geometry}
+								material={materials.Material_21}
+								position={[-4.512, -197.29, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="S002"
+								geometry={nodes.S002.geometry}
+								material={materials.Material_4}
+								position={[0, -210.207, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="ShiftL" position={[-188.107, -95.45, 21.994]}>
+							<mesh
+								name="shift"
+								geometry={nodes.shift.geometry}
+								material={materials.Material_5}
+								position={[-15.593, 14.828, 9.6]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="ShiftL001"
+								geometry={nodes.ShiftL001.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, -0.143]}
+								scale={[4.881, 0.888, 1]}
+							/>
+						</group>
+						<group name="ShiftR" position={[190.071, -95.45, 21.994]}>
+							<mesh
+								name="shift_2"
+								geometry={nodes.shift_2.geometry}
+								material={materials.Material_3}
+								position={[14.665, 14.828, 9.6]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="ShiftR001"
+								geometry={nodes.ShiftR001.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, -0.143]}
+								scale={[4.881, 0.888, 1]}
+							/>
+						</group>
+						<group name="Smile" position={[208.571, -95.448, 59.812]}>
+							<mesh
+								name=")002"
+								geometry={nodes[")002"].geometry}
+								material={materials.Table}
+								position={[-1.498, 14.829, 5.789]}
+								rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+							/>
+							<mesh
+								name=")003"
+								geometry={nodes[")003"].geometry}
+								material={materials.Material_4}
+								position={[0, 1.16, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="Smile_2" position={[-206.721, -95.448, 59.812]}>
+							<mesh
+								name=")"
+								geometry={nodes[")"].geometry}
+								material={materials.Keyboard_Mouse}
+								position={[-1.498, 14.829, 5.789]}
+								rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+							/>
+							<mesh
+								name=")001"
+								geometry={nodes[")001"].geometry}
+								material={materials.Material_4}
+								position={[0, 1.16, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="T" position={[-16.008, -95.578, -57.012]}>
+							<mesh
+								name="T001"
+								geometry={nodes.T001.geometry}
+								material={materials.Material_22}
+								position={[-4.512, 14.699, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="T002"
+								geometry={nodes.T002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.29, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="Tab" position={[-206.721, -95.45, -57.012]}>
+							<mesh
+								name="Tab001"
+								geometry={nodes.Tab001.geometry}
+								material={materials.Material_8}
+								position={[-0.521, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="Tab002"
+								geometry={nodes.Tab002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="U" position={[59.001, -95.45, -57.012]}>
+							<mesh
+								name="U001"
+								geometry={nodes.U001.geometry}
+								material={materials.Material_17}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="U002"
+								geometry={nodes.U002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="V" position={[-17.808, -95.45, 21.053]}>
+							<mesh
+								name="V001"
+								geometry={nodes.V001.geometry}
+								material={materials.Material_19}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="V002"
+								geometry={nodes.V002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="W" position={[-131.903, -80.622, -47.978]}>
+							<mesh
+								name="W001"
+								geometry={nodes.W001.geometry}
+								material={materials.Material_4}
+								position={[4.512, -13.666, -9.034]}
+								scale={[1, 0.888, 1]}
+							/>
+							<mesh
+								name="W002"
+								geometry={nodes.W002.geometry}
+								material={materials.Material_35}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+						</group>
+						<group name="X" position={[-92.817, -95.45, 21.053]}>
+							<mesh
+								name="X001"
+								geometry={nodes.X001.geometry}
+								material={materials.Material_27}
+								position={[-4.512, 14.83, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="X002"
+								geometry={nodes.X002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
+						<group name="Y" position={[22.087, -95.45, -57.012]}>
+							<mesh
+								name="Y001"
+								geometry={nodes.Y001.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+							<mesh
+								name="Y002"
+								geometry={nodes.Y002.geometry}
+								material={materials.Material_31}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+						</group>
+						<group name="Z" position={[-129.732, -95.45, 21.053]}>
+							<mesh
+								name="Z001"
+								geometry={nodes.Z001.geometry}
+								material={materials.Material_41}
+								position={[-4.512, 14.828, 9.034]}
+								rotation={[-Math.PI / 2, 0, 0]}
+							/>
+							<mesh
+								name="Z002"
+								geometry={nodes.Z002.geometry}
+								material={materials.Material_4}
+								position={[0, 1.161, 0]}
+								scale={[1, 0.888, 1]}
+							/>
+						</group>
 						<mesh
-							name="?001"
-							geometry={nodes["?001"].geometry}
-							material={materials.Material_12}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="?002"
-							geometry={nodes["?002"].geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="A" position={[-152.798, -95.45, -17.089]}>
-						<mesh
-							name="A001"
-							geometry={nodes.A001.geometry}
-							material={materials.Material_36}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="A002"
-							geometry={nodes.A002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="alt_2" position={[168.258, -95.45, 59.812]}>
-						<mesh
-							name="alt"
-							geometry={nodes.alt.geometry}
-							material={materials.Material_39}
-							position={[-3.401, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="alt001"
-							geometry={nodes.alt001.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="alt002" position={[-129.732, -95.45, 59.812]}>
-						<mesh
-							name="alt003"
-							geometry={nodes.alt003.geometry}
-							material={materials.Material_40}
-							position={[-3.401, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="alt004"
-							geometry={nodes.alt004.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="B" position={[20.56, -95.45, 21.053]}>
-						<mesh
-							name="B001"
-							geometry={nodes.B001.geometry}
-							material={materials.Material_30}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="B002"
-							geometry={nodes.B002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="C" position={[-59.234, -80.622, 30.087]}>
-						<mesh
-							name="C001"
-							geometry={nodes.C001.geometry}
-							material={materials.Material_4}
-							position={[4.512, -13.666, -9.034]}
-							scale={[1, 0.888, 1]}
-						/>
-						<mesh
-							name="C002"
-							geometry={nodes.C002.geometry}
-							material={materials.Material_33}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-					</group>
-					<group name="caps" position={[-199.286, -95.45, -17.319]}>
-						<mesh
-							name="Cap"
-							geometry={nodes.Cap.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, -0.13]}
-							scale={[4.881, 0.888, 1]}
-						/>
-						<mesh
-							name="caps001"
-							geometry={nodes.caps001.geometry}
-							material={materials.Material_7}
-							position={[-7.956, 14.828, 9.587]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-					</group>
-					<group name="cmd" position={[-90.166, -95.448, 59.812]}>
-						<mesh
-							name="CMD002"
-							geometry={nodes.CMD002.geometry}
-							material={materials.Material_26}
-							position={[-1.505, 14.829, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="CMD003"
-							geometry={nodes.CMD003.geometry}
-							material={materials.Material_4}
-							position={[0, 1.16, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="cmd_2" position={[126.598, -95.448, 59.812]}>
-						<mesh
-							name="CMD"
-							geometry={nodes.CMD.geometry}
-							material={materials.Material_25}
-							position={[-1.505, 14.829, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="CMD001"
-							geometry={nodes.CMD001.geometry}
-							material={materials.Material_4}
-							position={[0, 1.16, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="crtl" position={[-168.812, -95.448, 59.812]}>
-						<mesh
-							name="Crtl"
-							geometry={nodes.Crtl.geometry}
-							material={materials.Material_24}
-							position={[-0.095, 14.829, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="Crtl001"
-							geometry={nodes.Crtl001.geometry}
-							material={materials.Material_4}
-							position={[0, 1.16, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="D" position={[-78.33, -95.45, -17.089]}>
-						<mesh
-							name="D001"
-							geometry={nodes.D001.geometry}
-							material={materials.Material_38}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="D002"
-							geometry={nodes.D002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="del" position={[208.571, -95.45, -57.012]}>
-						<mesh
-							name="Del"
-							geometry={nodes.Del.geometry}
-							material={materials.Inner_Monitor}
-							position={[5.24, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="Del001"
-							geometry={nodes.Del001.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="E" position={[-90.477, -95.45, -57.012]}>
-						<mesh
-							name="E001"
-							geometry={nodes.E001.geometry}
-							material={materials.Material_20}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="E002"
-							geometry={nodes.E002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="F" position={[-41.416, 115.919, -17.089]}>
-						<mesh
-							name="F001"
-							geometry={nodes.F001.geometry}
-							material={materials.Material_23}
-							position={[-4.512, -192.17, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="F002"
-							geometry={nodes.F002.geometry}
-							material={materials.Material_4}
-							position={[0, -210.207, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="G" position={[-3.321, -95.45, -17.089]}>
-						<mesh
-							name="G001"
-							geometry={nodes.G001.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-						<mesh
-							name="G002"
-							geometry={nodes.G002.geometry}
-							material={materials.Material_32}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-					</group>
-					<group name="H" position={[33.593, -95.45, -17.089]}>
-						<mesh
-							name="H001"
-							geometry={nodes.H001.geometry}
-							material={materials.Material_18}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="H002"
-							geometry={nodes.H002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="I" position={[97.369, -95.45, -57.012]}>
-						<mesh
-							name="I001"
-							geometry={nodes.I001.geometry}
-							material={materials.Material_28}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="I002"
-							geometry={nodes.I002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="J" position={[71.962, -95.45, -17.089]}>
-						<mesh
-							name="J001"
-							geometry={nodes.J001.geometry}
-							material={materials.Material_29}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="J002"
-							geometry={nodes.J002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="K" position={[108.876, -95.45, -17.089]}>
-						<mesh
-							name="K001"
-							geometry={nodes.K001.geometry}
-							material={materials.Material_15}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="K002"
-							geometry={nodes.K002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="L" position={[146.26, -95.45, -17.089]}>
-						<mesh
-							name="L001"
-							geometry={nodes.L001.geometry}
-							material={materials.Material_11}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="L002"
-							geometry={nodes.L002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="M" position={[94.859, -95.45, 21.053]}>
-						<mesh
-							name="M001"
-							geometry={nodes.M001.geometry}
-							material={materials.Material_13}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="M002"
-							geometry={nodes.M002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="N" position={[57.474, -95.45, 21.053]}>
-						<mesh
-							name="N001"
-							geometry={nodes.N001.geometry}
-							material={materials.Material_16}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="N002"
-							geometry={nodes.N002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="O" position={[134.283, -95.45, -57.012]}>
-						<mesh
-							name="O001"
-							geometry={nodes.O001.geometry}
-							material={materials.Material_14}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="O002"
-							geometry={nodes.O002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="P" position={[171.668, -95.45, -57.012]}>
-						<mesh
-							name="P001"
-							geometry={nodes.P001.geometry}
-							material={materials.Material_10}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="P002"
-							geometry={nodes.P002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="Q" position={[-165.744, -95.45, -57.012]}>
-						<mesh
-							name="Q001"
-							geometry={nodes.Q001.geometry}
-							material={materials.Material_34}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="Q002"
-							geometry={nodes.Q002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="R" position={[-152.798, -95.45, -17.089]}>
-						<mesh
-							name="R001"
-							geometry={nodes.R001.geometry}
-							material={materials.Material_4}
-							position={[99.876, 1.161, -39.924]}
-							scale={[1, 0.888, 1]}
-						/>
-						<mesh
-							name="R002"
-							geometry={nodes.R002.geometry}
-							material={materials.Material_37}
-							position={[95.364, 14.828, -30.89]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-					</group>
-					<group name="return" position={[196.532, -95.45, -17.319]}>
-						<mesh
-							name="Return"
-							geometry={nodes.Return.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, -0.13]}
-							scale={[4.881, 0.888, 1]}
-						/>
-						<mesh
-							name="return001"
-							geometry={nodes.return001.geometry}
-							material={materials.Material_6}
-							position={[4.362, 14.828, 9.587]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-					</group>
-					<group name="S" position={[-115.884, 115.919, -17.089]}>
-						<mesh
-							name="S001"
-							geometry={nodes.S001.geometry}
-							material={materials.Material_21}
-							position={[-4.512, -197.29, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="S002"
-							geometry={nodes.S002.geometry}
-							material={materials.Material_4}
-							position={[0, -210.207, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="ShiftL" position={[-188.107, -95.45, 21.994]}>
-						<mesh
-							name="shift"
-							geometry={nodes.shift.geometry}
-							material={materials.Material_5}
-							position={[-15.593, 14.828, 9.6]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="ShiftL001"
-							geometry={nodes.ShiftL001.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, -0.143]}
-							scale={[4.881, 0.888, 1]}
-						/>
-					</group>
-					<group name="ShiftR" position={[190.071, -95.45, 21.994]}>
-						<mesh
-							name="shift_2"
-							geometry={nodes.shift_2.geometry}
-							material={materials.Material_3}
-							position={[14.665, 14.828, 9.6]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="ShiftR001"
-							geometry={nodes.ShiftR001.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, -0.143]}
-							scale={[4.881, 0.888, 1]}
-						/>
-					</group>
-					<group name="Smile" position={[208.571, -95.448, 59.812]}>
-						<mesh
-							name=")002"
-							geometry={nodes[")002"].geometry}
-							material={materials.Table}
-							position={[-1.498, 14.829, 5.789]}
-							rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-						/>
-						<mesh
-							name=")003"
-							geometry={nodes[")003"].geometry}
-							material={materials.Material_4}
-							position={[0, 1.16, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="Smile_2" position={[-206.721, -95.448, 59.812]}>
-						<mesh
-							name=")"
-							geometry={nodes[")"].geometry}
+							name="Merged_Geometry"
+							geometry={nodes.Merged_Geometry.geometry}
 							material={materials.Keyboard_Mouse}
-							position={[-1.498, 14.829, 5.789]}
-							rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+							position={[0, -110.443, -0.153]}
+							rotation={[-0.094, 0, 0]}
+							scale={6.082}
 						/>
 						<mesh
-							name=")001"
-							geometry={nodes[")001"].geometry}
+							name="SpaceBar"
+							geometry={nodes.SpaceBar.geometry}
 							material={materials.Material_4}
-							position={[0, 1.16, 0]}
-							scale={[1, 0.888, 1]}
+							position={[18.087, -94.288, 59.812]}
+							scale={[4.881, 0.888, 1]}
 						/>
 					</group>
-					<group name="T" position={[-16.008, -95.578, -57.012]}>
-						<mesh
-							name="T001"
-							geometry={nodes.T001.geometry}
-							material={materials.Material_22}
-							position={[-4.512, 14.699, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="T002"
-							geometry={nodes.T002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.29, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="Tab" position={[-206.721, -95.45, -57.012]}>
-						<mesh
-							name="Tab001"
-							geometry={nodes.Tab001.geometry}
-							material={materials.Material_8}
-							position={[-0.521, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="Tab002"
-							geometry={nodes.Tab002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="U" position={[59.001, -95.45, -57.012]}>
-						<mesh
-							name="U001"
-							geometry={nodes.U001.geometry}
-							material={materials.Material_17}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="U002"
-							geometry={nodes.U002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="V" position={[-17.808, -95.45, 21.053]}>
-						<mesh
-							name="V001"
-							geometry={nodes.V001.geometry}
-							material={materials.Material_19}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="V002"
-							geometry={nodes.V002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="W" position={[-131.903, -80.622, -47.978]}>
-						<mesh
-							name="W001"
-							geometry={nodes.W001.geometry}
-							material={materials.Material_4}
-							position={[4.512, -13.666, -9.034]}
-							scale={[1, 0.888, 1]}
-						/>
-						<mesh
-							name="W002"
-							geometry={nodes.W002.geometry}
-							material={materials.Material_35}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-					</group>
-					<group name="X" position={[-92.817, -95.45, 21.053]}>
-						<mesh
-							name="X001"
-							geometry={nodes.X001.geometry}
-							material={materials.Material_27}
-							position={[-4.512, 14.83, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="X002"
-							geometry={nodes.X002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<group name="Y" position={[22.087, -95.45, -57.012]}>
-						<mesh
-							name="Y001"
-							geometry={nodes.Y001.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-						<mesh
-							name="Y002"
-							geometry={nodes.Y002.geometry}
-							material={materials.Material_31}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-					</group>
-					<group name="Z" position={[-129.732, -95.45, 21.053]}>
-						<mesh
-							name="Z001"
-							geometry={nodes.Z001.geometry}
-							material={materials.Material_41}
-							position={[-4.512, 14.828, 9.034]}
-							rotation={[-Math.PI / 2, 0, 0]}
-						/>
-						<mesh
-							name="Z002"
-							geometry={nodes.Z002.geometry}
-							material={materials.Material_4}
-							position={[0, 1.161, 0]}
-							scale={[1, 0.888, 1]}
-						/>
-					</group>
-					<mesh
-						name="Merged_Geometry"
-						geometry={nodes.Merged_Geometry.geometry}
-						material={materials.Keyboard_Mouse}
-						position={[0, -110.443, -0.153]}
-						rotation={[-0.094, 0, 0]}
-						scale={6.082}
-					/>
-					<mesh
-						name="SpaceBar"
-						geometry={nodes.SpaceBar.geometry}
-						material={materials.Material_4}
-						position={[18.087, -94.288, 59.812]}
-						scale={[4.881, 0.888, 1]}
-					/>
-				</group>
+				</Float>
 				<Float floatIntensity={0.5} rotationIntensity={0.3}>
 					<group
 						name="Plant_Plant"
@@ -1004,16 +1006,20 @@ const DeskScene = ({ ...props }) => {
 						material={materials.Speaker_Panel}
 						position={[47.575, 61.927, 21.862]}
 					/>
-					<mesh
+					<motion.mesh
 						name="Cylinder"
+						whileHover={{ rotateY: 40 }}
+						transition={{ duration: 1, damping: 50, stiffness: 300 }}
 						geometry={nodes.Cylinder.geometry}
 						material={materials.Metal_Knobs}
 						position={[52.681, 81.694, 23.344]}
 						rotation={[-Math.PI / 2, -Math.PI / 2, 0]}
 						scale={0.862}
 					/>
-					<mesh
+					<motion.mesh
 						name="Cylinder_2"
+						whileHover={{ rotateY: -40 }}
+						transition={{ duration: 1, damping: 50, stiffness: 300 }}
 						geometry={nodes.Cylinder_2.geometry}
 						material={materials.Metal_Knobs}
 						position={[52.681, 66.688, 23.344]}
@@ -1034,18 +1040,34 @@ const DeskScene = ({ ...props }) => {
 						position={[-20.986, 62.226, 17.526]}
 						rotation={[Math.PI / 2, 0, 0]}
 						scale={[168.34, 168.34, 147.105]}>
-						<MeshReflectorMaterial
-							blur={[300, 30]}
-							resolution={2048}
-							mixBlur={1}
-							mixStrength={180}
-							roughness={1}
-							depthScale={1.2}
-							minDepthThreshold={0.4}
-							maxDepthThreshold={1.4}
-							color="#202020"
-							metalness={0.8}
-						/>
+						{section >= 2 ? (
+							<MeshReflectorMaterial
+								blur={[300, 30]}
+								resolution={2048}
+								mixBlur={1}
+								mixStrength={180}
+								roughness={1}
+								depthScale={1}
+								distortion={2}
+								minDepthThreshold={0.4}
+								maxDepthThreshold={2}
+								color="#ffffff"
+								metalness={0.8}
+							/>
+						) : (
+							<MeshReflectorMaterial
+								blur={[300, 30]}
+								resolution={2048}
+								mixBlur={1}
+								mixStrength={180}
+								roughness={1}
+								depthScale={1.2}
+								minDepthThreshold={0.4}
+								maxDepthThreshold={1.4}
+								color="#202020"
+								metalness={0.8}
+							/>
+						)}
 					</mesh>
 				</group>
 				<Float floatIntensity={0.5} rotationIntensity={0.3}>
