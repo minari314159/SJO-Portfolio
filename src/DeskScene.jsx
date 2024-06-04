@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
 	useGLTF,
 	Float,
@@ -10,6 +10,7 @@ import {
 import * as THREE from "three";
 import { motion } from "framer-motion-3d";
 import { useFrame } from "@react-three/fiber";
+
 import { useAnimation } from "framer-motion";
 import { geoVariants } from "./utils/motions";
 
@@ -17,9 +18,9 @@ const DeskScene = ({ ...props }) => {
 	const { nodes, materials, animations } = useGLTF("./model/desk_scene.glb");
 
 	const texture = useTexture("/textures/baked.jpg");
-
 	texture.flipY = false;
 	texture.colorSpace = THREE.SRGBColorSpace;
+
 	const data = useScroll();
 
 	const [section, setSection] = useState(0);
@@ -28,7 +29,6 @@ const DeskScene = ({ ...props }) => {
 	const textureMaterial = new THREE.MeshStandardMaterial({
 		map: texture,
 	});
-	const screen = useRef();
 
 	useEffect(() => {
 		if (section === 0) {
@@ -1022,7 +1022,6 @@ const DeskScene = ({ ...props }) => {
 
 					<mesh
 						name="Screen"
-						ref={screen}
 						geometry={nodes.Screen.geometry}
 						position={[-20.986, 62.226, 17.526]}
 						rotation={[Math.PI / 2, 0, 0]}
