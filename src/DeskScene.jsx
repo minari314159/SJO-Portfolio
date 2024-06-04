@@ -6,15 +6,23 @@ import {
 	useScroll,
 	useTexture,
 	Sparkles,
+	MeshReflectorMaterial,
 } from "@react-three/drei";
 import * as THREE from "three";
 import { motion } from "framer-motion-3d";
 import { useFrame } from "@react-three/fiber";
-
+import { useControls } from "leva";
 import { useAnimation } from "framer-motion";
 import { geoVariants } from "./utils/motions";
 
 const DeskScene = ({ ...props }) => {
+	const { position } = useControls("Camera", {
+		position: {
+			value: { x: 0.3, y: 0, z: 0.26 },
+			min: [-5, -5, -5],
+			max: [5, 5, 5],
+		},
+	});
 	const { nodes, materials, animations } = useGLTF("./model/desk_scene.glb");
 
 	const texture = useTexture("/textures/baked.jpg");
@@ -53,13 +61,13 @@ const DeskScene = ({ ...props }) => {
 	});
 
 	return (
-		<Bounds fit clip observe margin={0.2}>
+		<group position={[position.x, position.y, position.z]}>
 			<motion.group
 				name="Node_0"
 				scale={0.004}
 				{...props}
 				dispose={null}
-				position={[0.1, 0, -0.1]}
+				position={[-0.1, 0, 0.1]}
 				initial={geoVariants[0]}
 				animate={animate}
 				variants={geoVariants}>
@@ -1026,7 +1034,18 @@ const DeskScene = ({ ...props }) => {
 						position={[-20.986, 62.226, 17.526]}
 						rotation={[Math.PI / 2, 0, 0]}
 						scale={[168.34, 168.34, 147.105]}>
-						<meshStandardMaterial emissive="#ffffff" emissiveIntensity={2} />
+						<MeshReflectorMaterial
+							blur={[300, 30]}
+							resolution={2048}
+							mixBlur={1}
+							mixStrength={180}
+							roughness={1}
+							depthScale={1.2}
+							minDepthThreshold={0.4}
+							maxDepthThreshold={1.4}
+							color="#202020"
+							metalness={0.8}
+						/>
 					</mesh>
 				</group>
 				<Float floatIntensity={0.5} rotationIntensity={0.3}>
@@ -1047,8 +1066,9 @@ const DeskScene = ({ ...props }) => {
 					scale={[1.202, 1, 1]}
 				/>
 			</motion.group>
+
 			<Sparkles position={[0, 0.5, 0]} scale={[5, 5, 5]} size={4} speed={0.4} />
-		</Bounds>
+		</group>
 	);
 };
 

@@ -2,7 +2,8 @@ export const geoVariants = {
 	0: {
 		rotateY: -0.5,
 		x: 0,
-
+		y: -0.1,
+		scale: 0.004,
 		transition: {
 			duration: 1,
 			type: "tween",
@@ -13,7 +14,8 @@ export const geoVariants = {
 	1: {
 		rotateY: 0.5,
 		x: -0.4,
-
+		y: -0.1,
+		scale: 0.004,
 		transition: {
 			duration: 1,
 			type: "tween",
@@ -22,10 +24,10 @@ export const geoVariants = {
 		},
 	},
 	2: {
-		rotateY: 0,
-		x: -0.7,
-		y: -2,
-		scale: 0.018,
+		rotateY: -0.05,
+		x: -Math.floor(window.innerWidth / 2) * 0.0008,
+		y: -Math.floor(window.innerHeight / 2) * 0.002,
+		scale: 0.01,
 		transition: {
 			duration: 1,
 			type: "tween",

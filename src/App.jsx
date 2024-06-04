@@ -1,10 +1,4 @@
-import {
-	ScrollControls,
-	Scroll,
-	Environment,
-	Preload,
-	Bounds,
-} from "@react-three/drei";
+import { ScrollControls, Scroll, Preload } from "@react-three/drei";
 import DeskScene from "./DeskScene";
 
 import Interface from "./Interface";
@@ -16,7 +10,7 @@ import { useState, Suspense } from "react";
 
 export default function App() {
 	const [section, changeSection] = useState(0);
-
+	const [open, setOpen] = useState(false);
 	const [started, setStarted] = useState(false);
 
 	return (
@@ -26,28 +20,31 @@ export default function App() {
 			<Canvas
 				shadows
 				dpr={[1, 2]}
-				orthographic
 				camera={{
 					position: [0, 2, 4],
-					left: -2,
-					right: 2,
-					top: 2,
-					bottom: 2,
+
+					fov: 25,
+					near: 1,
+					far: 20,
 				}}>
 				{/* Scene */}
-				<Environment preset="night" />
+				<hemisphereLight intensity={0.3} groundColor="black" />
+
 				<color args={["#000000"]} attach="background" />
 
 				{/* Scroll Controls */}
 				<ScrollControls pages={3} distance={1} damping={0.01}>
 					<ScrollManager section={section} changeSection={changeSection} />
 
-					<Suspense>{started && <DeskScene section={section} />}</Suspense>
+					<Suspense>
+						{started && <DeskScene section={section} setOpen={setOpen} />}
+					</Suspense>
 
 					<Scroll position={[0, 0]} html>
-						{started && <Interface section={section} />}
+						{started && <Interface section={section} open={open} />}
 					</Scroll>
 				</ScrollControls>
+
 				<Preload all />
 			</Canvas>
 		</>
