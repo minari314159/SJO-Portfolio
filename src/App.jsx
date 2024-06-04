@@ -37,7 +37,7 @@ export default function App() {
 					<ScrollManager section={section} changeSection={changeSection} />
 
 					<Suspense>
-						{started && <DeskScene section={section} setOpen={setOpen} />}
+						{started && <DeskScene section={section} open={open} />}
 					</Suspense>
 
 					<Scroll position={[0, 0]} html>

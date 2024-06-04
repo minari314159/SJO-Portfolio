@@ -46,7 +46,7 @@ const DeskScene = ({ ...props }) => {
 			setSection(0);
 		} else if (currentSection === 1) {
 			setSection(1);
-		} else if (currentSection >= 2) {
+		} else if (currentSection === 2) {
 			setSection(2);
 		}
 	});

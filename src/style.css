@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,34 +15,12 @@ body,
 	background: black;
 	font-family: "Abril Fatface";
 	overflow: hidden;
+	scroll-behavior: smooth;
 }
 
 /* 
 Menu */
 
-.screen {
-	box-shadow: inset 6px 6px 5px 0 rgba(0, 0, 0, 0.2),
-		inset -6px -6px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-iframe {
-	width: 100%;
-	height: 100%;
-	opacity: 90%;
-}
-
-.png__sequence{
-  width: 100%;
-  height: 500vh;
-  position: relative;
-}
-  ._canvas{
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  max-width: 100vw;
-  max-height: 100vh;
-  position: sticky;
-  z-index: 1;
+.screen_text {
+	font-family: "DM Mono", monospace;
 }

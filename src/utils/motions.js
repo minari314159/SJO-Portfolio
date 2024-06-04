@@ -36,3 +36,17 @@ export const geoVariants = {
 		},
 	},
 };
+
+export const screenVariants = {
+	initial: {
+		opacity: 0,
+		x: Math.floor(window.innerWidth / 2) * 0.45,
+		y: Math.floor(window.innerHeight / 2) * 0.12,
+	},
+	2: {
+		opacity: 1,
+		x: Math.floor(window.innerWidth / 2) * 0.45,
+		y: Math.floor(window.innerHeight / 2) * 0.12,
+		transition: { type: "spring", duration: 1, delay: 1.2 },
+	},
+};

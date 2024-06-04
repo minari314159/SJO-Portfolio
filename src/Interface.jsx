@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { screenVariants } from "./utils/motions";
 import Screen from "./Screen";
 
 const Interface = ({ section, open, setOpen }) => {
@@ -45,30 +46,26 @@ const Interface = ({ section, open, setOpen }) => {
 					* Scroll to proceed *
 				</h3>
 			</motion.section>
-			<motion.section
+			<section
 				className="h-screen w-screen   
-        relative "
-				onClick={() => {
-					setOpen(!open);
-				}}>
-				<motion.p
-					initial={{ opacity: 0 }}
+					">
+				<motion.div
+					initial={screenVariants.initial}
 					animate={"" + section}
-					variants={{
-						2: {
-							opacity: 1,
-							transition: { type: "spring", duration: 1, delay: 2 },
-						},
-					}}
-					className={`${
-						open
-							? "hidden"
-							: "text-black absolute top-[25%] left-[47%] pointer-events-none"
-					}`}>
-					Click to Enter<span className="animate-pulse">_</span>
-				</motion.p>
+					variants={screenVariants}
+					className=" h-[40vh] w-[60vw]  flex justify-center items-center cursor-pointer"
+					onClick={() => {
+						setOpen(!open);
+					}}>
+					<motion.p
+						className={`${
+							open ? "hidden" : "text-gray-500 pointer-events-none screen_text"
+						}`}>
+						Click to Enter<span className="animate-pulse">_</span>
+					</motion.p>
+				</motion.div>
 				{open && <Screen setOpen={setOpen} open={open} />}
-			</motion.section>
+			</section>
 		</>
 	);
 };
