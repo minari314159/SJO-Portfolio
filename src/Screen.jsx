@@ -2,7 +2,10 @@ import { Suspense } from "react";
 import LoadingScreen from "./LoadingScreen";
 import { motion } from "framer-motion";
 
+
 const Screen = ({ setOpen, open }) => {
+	
+
 	return (
 		<motion.section
 			initial={{ opacity: 0, scale: 0 }}

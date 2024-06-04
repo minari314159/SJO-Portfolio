@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { screenVariants } from "./utils/motions";
 import Screen from "./Screen";
+import { useRef } from "react";
 
 const Interface = ({ section, open, setOpen }) => {
+	const containerRef = useRef();
 	return (
 		<>
 			<motion.section
@@ -47,6 +49,7 @@ const Interface = ({ section, open, setOpen }) => {
 				</h3>
 			</motion.section>
 			<section
+				ref={containerRef}
 				className="h-screen w-screen   
 					">
 				<motion.div
@@ -54,9 +57,7 @@ const Interface = ({ section, open, setOpen }) => {
 					animate={"" + section}
 					variants={screenVariants}
 					className=" h-[40vh] w-[60vw]  flex justify-center items-center cursor-pointer"
-					onClick={() => {
-						setOpen(!open);
-					}}>
+					onClick={() => setOpen(!open)}>
 					<motion.p
 						className={`${
 							open ? "hidden" : "text-gray-500 pointer-events-none screen_text"
