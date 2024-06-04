@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Screen from "./Screen";
 
-const Interface = ({ section, open }) => {
+const Interface = ({ section, open, setOpen }) => {
 	return (
 		<>
 			<motion.section
@@ -46,9 +46,28 @@ const Interface = ({ section, open }) => {
 				</h3>
 			</motion.section>
 			<motion.section
-				lassName="h-screen w-screen   
-        flex flex-col items-center justify-center  ">
-				{open && <Screen />}
+				className="h-screen w-screen   
+        relative "
+				onClick={() => {
+					setOpen(!open);
+				}}>
+				<motion.p
+					initial={{ opacity: 0 }}
+					animate={"" + section}
+					variants={{
+						2: {
+							opacity: 1,
+							transition: { type: "spring", duration: 1, delay: 2 },
+						},
+					}}
+					className={`${
+						open
+							? "hidden"
+							: "text-black absolute top-[25%] left-[47%] pointer-events-none"
+					}`}>
+					Click to Enter<span className="animate-pulse">_</span>
+				</motion.p>
+				{open && <Screen setOpen={setOpen} open={open} />}
 			</motion.section>
 		</>
 	);

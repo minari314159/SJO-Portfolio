@@ -16,7 +16,7 @@ export default function App() {
 	return (
 		<>
 			<LoadingScreen started={started} setStarted={setStarted} />
-			<Menu changeSection={changeSection} section={section} />
+			<Menu changeSection={changeSection} section={section} open={open} />
 			<Canvas
 				shadows
 				dpr={[1, 2]}
@@ -41,7 +41,9 @@ export default function App() {
 					</Suspense>
 
 					<Scroll position={[0, 0]} html>
-						{started && <Interface section={section} open={open} />}
+						{started && (
+							<Interface section={section} open={open} setOpen={setOpen} />
+						)}
 					</Scroll>
 				</ScrollControls>
 

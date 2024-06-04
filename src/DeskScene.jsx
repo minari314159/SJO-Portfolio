@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import {
 	useGLTF,
 	Float,
-	Bounds,
 	useScroll,
 	useTexture,
 	Sparkles,
@@ -11,19 +10,11 @@ import {
 import * as THREE from "three";
 import { motion } from "framer-motion-3d";
 import { useFrame } from "@react-three/fiber";
-import { useControls } from "leva";
 import { useAnimation } from "framer-motion";
 import { geoVariants } from "./utils/motions";
 
 const DeskScene = ({ ...props }) => {
-	const { position } = useControls("Camera", {
-		position: {
-			value: { x: 0.3, y: 0, z: 0.26 },
-			min: [-5, -5, -5],
-			max: [5, 5, 5],
-		},
-	});
-	const { nodes, materials, animations } = useGLTF("./model/desk_scene.glb");
+	const { nodes, materials } = useGLTF("./model/desk_scene.glb");
 
 	const texture = useTexture("/textures/baked.jpg");
 	texture.flipY = false;
@@ -61,7 +52,7 @@ const DeskScene = ({ ...props }) => {
 	});
 
 	return (
-		<group position={[position.x, position.y, position.z]}>
+		<group position={[0.3, 0, 0.26]}>
 			<motion.group
 				name="Node_0"
 				scale={0.004}
