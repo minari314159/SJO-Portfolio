@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
 import { screenVariants } from "./utils/motions";
 import Screen from "./Screen";
-import { useRef } from "react";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 const Interface = ({ section, open, setOpen }) => {
-	const containerRef = useRef();
+	const { ref, inView } = useInView();
+	useEffect(() => {
+		if (!inView) setOpen(false);
+	}, [inView]);
 	return (
-		<>
+		<section>
 			<motion.section
 				className="h-screen w-screen p-8 max-w-screen-2xl mx-auto
         flex flex-col items-start "
@@ -49,25 +53,30 @@ const Interface = ({ section, open, setOpen }) => {
 				</h3>
 			</motion.section>
 			<section
-				ref={containerRef}
-				className="h-screen w-screen   
+				className=" h-screen w-screen   
 					">
 				<motion.div
+					ref={ref}
 					initial={screenVariants.initial}
-					animate={"" + section}
+					animate={
+						inView && section >= 2
+							? screenVariants.animate
+							: screenVariants.initial
+					}
 					variants={screenVariants}
 					className=" h-[40vh] w-[60vw]  flex justify-center items-center cursor-pointer"
 					onClick={() => setOpen(!open)}>
 					<motion.p
 						className={`${
-							open ? "hidden" : "text-gray-500 pointer-events-none screen_text"
+							open ? "hidden" : "text-gray-500 pointer-events-none screen_text "
 						}`}>
 						Click to Enter<span className="animate-pulse">_</span>
 					</motion.p>
 				</motion.div>
+
 				{open && <Screen setOpen={setOpen} open={open} />}
 			</section>
-		</>
+		</section>
 	);
 };
 

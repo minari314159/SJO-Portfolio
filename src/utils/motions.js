@@ -43,7 +43,7 @@ export const screenVariants = {
 		x: Math.floor(window.innerWidth / 2) * 0.45,
 		y: Math.floor(window.innerHeight / 2) * 0.12,
 	},
-	2: {
+	animate: {
 		opacity: 1,
 		x: Math.floor(window.innerWidth / 2) * 0.45,
 		y: Math.floor(window.innerHeight / 2) * 0.12,
