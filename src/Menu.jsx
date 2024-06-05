@@ -1,10 +1,11 @@
-
-
 const Menu = ({ open, changeSection, section }) => {
-	
 	return (
 		<section
-			className={`${open ? "hidden" : "fixed z-20 w-[8rem] border-none top-5  flex left-[75vw] lg:left-[80vw] xl:left-[89vw] justify-between"} `}>
+			className={`${
+				open
+					? "hidden"
+					: "fixed z-20 w-[8rem] border-none top-5  flex left-[45%] justify-between"
+			} `}>
 			<button
 				className={`${
 					section === 0

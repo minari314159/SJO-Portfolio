@@ -59,13 +59,15 @@ const DeskScene = ({ open, ...props }) => {
 			rotation={[0, 0, 0]}
 			animate={{
 				scale: open ? 2.5 : 1,
-				x: open ? 0.65 : 0.3,
-				y: open ? -0.2 : 0,
+				x: open ? Math.floor(window.innerWidth / 2) * 0.001 : 0.3,
+				y: open ? -Math.floor(window.innerHeight / 2) * 0.0007 : 0,
 				z: open ? 2.6 : 0.26,
 				rotateX: open ? -0.5 : 0,
 				transition: {
 					type: "spring",
-					duration: 0.5,
+					damping: 50,
+					stiffness: 300,
+					duration: 1,
 				},
 			}}>
 			<motion.group
@@ -74,7 +76,11 @@ const DeskScene = ({ open, ...props }) => {
 				scale={0.004}
 				dispose={null}
 				position={[-0.1, 0, 0.1]}
-				initial={geoVariants[0]}
+				initial={{
+					opacity: 0,
+					scale: 0,
+					transition: { ease: "easeInOut", duration: 0.8 },
+				}}
 				animate={animate}
 				variants={geoVariants}>
 				<pointLight

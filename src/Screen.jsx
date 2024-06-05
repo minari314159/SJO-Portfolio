@@ -11,8 +11,9 @@ const Screen = ({ setOpen, open }) => {
 				scale: 1,
 
 				transition: {
-					type: "spring",
-					duration: 0.5,
+					type: "tween",
+					ease: "easeOut",
+					duration: 0.2,
 				},
 			}}
 			className=" h-screen w-screen absolute bottom-0 left-0 flex justify-center items-center  text-black  shadow-inner transition-all "

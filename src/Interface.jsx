@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { screenVariants } from "./utils/motions";
+
 import Screen from "./Screen";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -9,6 +9,20 @@ const Interface = ({ section, open, setOpen }) => {
 	useEffect(() => {
 		if (!inView) setOpen(false);
 	}, [inView]);
+
+	const screenVariants = {
+		initial: {
+			opacity: 0,
+			x: Math.floor(window.innerWidth / 2) * 0.45,
+			y: Math.floor(window.innerHeight / 2) * 0.12,
+		},
+		animate: {
+			opacity: 1,
+			x: Math.floor(window.innerWidth / 2) * 0.45,
+			y: Math.floor(window.innerHeight / 2) * 0.12,
+			transition: { type: "spring", duration: 1, delay: 1.2 },
+		},
+	};
 	return (
 		<section>
 			<motion.section
@@ -43,9 +57,9 @@ const Interface = ({ section, open, setOpen }) => {
 					},
 				}}>
 				<h1 className="text-white text-[50px] lg:text-[60px] xl:text-[70px] text-center md:text-right mt-[6rem] ">
-					Sit down, <br className="hidden md:flex" />
+					Sit down, <br className="flex" />
 					Turn it on,
-					<br className="hidden md:flex" />
+					<br className="flex" />
 					Enjoy !
 				</h1>
 				<h3 className="text-gray-500 text-center md:text-right text-[15px] lg:text-[20px]">
@@ -68,8 +82,10 @@ const Interface = ({ section, open, setOpen }) => {
 					onClick={() => setOpen(!open)}>
 					<motion.p
 						className={`${
-							open ? "hidden" : "text-gray-500 pointer-events-none screen_text "
-						}`}>
+							open
+								? "opacity-0 screen_text transition-all delay-[50ms]"
+								: "text-gray-500 pointer-events-none screen_text  transition-all delay-300"
+						} `}>
 						Click to Enter<span className="animate-pulse">_</span>
 					</motion.p>
 				</motion.div>
