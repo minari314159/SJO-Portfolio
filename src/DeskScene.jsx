@@ -12,8 +12,9 @@ import { motion } from "framer-motion-3d";
 import { useFrame } from "@react-three/fiber";
 import { useAnimation } from "framer-motion";
 import { geoVariants } from "./utils/motions";
+import { useRef } from "react";
 
-const DeskScene = ({ ...props }) => {
+const DeskScene = ({ open, ...props }) => {
 	const { nodes, materials } = useGLTF("./model/desk_scene.glb");
 
 	const texture = useTexture("/textures/baked.jpg");
@@ -21,7 +22,7 @@ const DeskScene = ({ ...props }) => {
 	texture.colorSpace = THREE.SRGBColorSpace;
 
 	const data = useScroll();
-
+	const monitor = useRef();
 	const [section, setSection] = useState(0);
 
 	const animate = useAnimation();
@@ -52,11 +53,25 @@ const DeskScene = ({ ...props }) => {
 	});
 
 	return (
-		<group position={[0.3, 0, 0.26]}>
+		<motion.group
+			position={[0.3, 0, 0.26]}
+			scale={1}
+			rotation={[0, 0, 0]}
+			animate={{
+				scale: open ? 2.5 : 1,
+				x: open ? 0.65 : 0.3,
+				y: open ? -0.2 : 0,
+				z: open ? 2.6 : 0.26,
+				rotateX: open ? -0.5 : 0,
+				transition: {
+					type: "spring",
+					duration: 0.5,
+				},
+			}}>
 			<motion.group
 				name="Node_0"
-				scale={0.004}
 				{...props}
+				scale={0.004}
 				dispose={null}
 				position={[-0.1, 0, 0.1]}
 				initial={geoVariants[0]}
@@ -944,7 +959,11 @@ const DeskScene = ({ ...props }) => {
 						/>
 					</group>
 				</Float>
-				<group name="TV_Old" position={[23.45, 110.148, -27.421]} scale={0.594}>
+				<group
+					ref={monitor}
+					name="TV_Old"
+					position={[23.45, 110.148, -27.421]}
+					scale={0.594}>
 					<mesh
 						name="Cube_59"
 						geometry={nodes.Cube_59.geometry}
@@ -1081,7 +1100,7 @@ const DeskScene = ({ ...props }) => {
 			</motion.group>
 
 			<Sparkles position={[0, 0.5, 0]} scale={[5, 5, 5]} size={4} speed={0.4} />
-		</group>
+		</motion.group>
 	);
 };
 
