@@ -1,8 +1,8 @@
-import { Suspense } from "react";
-import LoadingScreen from "./LoadingScreen";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Screen = ({ setOpen, open }) => {
+	const [loading, setLoading] = useState(true);
 	return (
 		<motion.section
 			initial={{ opacity: 0, scale: 0 }}
@@ -20,19 +20,32 @@ const Screen = ({ setOpen, open }) => {
 			onClick={(e) => {
 				e.stopPropagation();
 			}}>
-			<Suspense fallback={<LoadingScreen />}>
-				<iframe
-					className=" relative w-full h-full rounded-[4.5rem] shadow-inner border-[0.5rem]"
-					src="https://3-d-portfolio-pi.vercel.app/"
-				/>
-				<button
-					className="rounded-full border-2 screen_text  text-gray-500 border-black bg-gray-200 px-3 py-1   text-[11px] md:text-[16px] lg:text-[18px] transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px]  hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:shadow-none z-10 absolute top-[1rem] left-8 h-[2.25rem] opacity-[95%] "
-					onClick={() => {
-						setOpen(!open);
-					}}>
-					X
-				</button>
-			</Suspense>
+			{loading ? (
+				<div className="relative w-full h-full rounded-[4.5rem] shadow-inner  flex flex-col items-center justify-center border-[0.5rem] bg-black opacity-90 ">
+					<p className="text-white text-2xl">
+						Loading{" "}
+						<span className="animate-pulse duration-300 transition-all">_</span>
+					</p>
+				</div>
+			) : (
+				<></>
+			)}
+			<iframe
+				className={` relative w-full h-full rounded-[4.5rem] shadow-inner border-[0.5rem] ${
+					loading ? "hidden" : ""
+				}`}
+				src="https://3-d-portfolio-pi.vercel.app/"
+				onLoad={() => setLoading(false)}
+			/>
+			<button
+				className={`rounded-full border-2 screen_text  text-gray-500 border-black bg-gray-200 px-3 py-1   text-[11px] md:text-[16px] lg:text-[18px] transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px]  hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:shadow-none z-10 absolute top-[1rem] left-8 h-[2.25rem] opacity-[95%] ${
+					loading ? "hidden" : ""
+				}`}
+				onClick={() => {
+					setOpen(!open);
+				}}>
+				X
+			</button>
 		</motion.section>
 	);
 };
